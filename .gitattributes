@@ -1,0 +1,10 @@
+*.cpp text linguist-language=C++
+*.cc text linguist-language=C++
+*.cxx text linguist-language=C++
+*.h text linguist-language=C++
+*.hpp text linguist-language=C++
+*.hxx text linguist-language=C++
+*.cppm text linguist-language=C++
+*.ixx text linguist-language=C++
+*.inc text linguist-language=sourcepawn
+*.sma text linguist-language=sourcepawn
