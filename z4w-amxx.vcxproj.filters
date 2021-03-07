@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="sdk">
+      <UniqueIdentifier>{2cd64804-3008-46d5-b31f-3058aa9c4218}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="hlsdk">
+      <UniqueIdentifier>{2d1b1011-9918-4bea-993b-7f7c0528ee73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="amxx">
+      <UniqueIdentifier>{291b34c9-f278-438d-adce-bde2811d0155}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SourceSDK">
+      <UniqueIdentifier>{7fa0fb36-9ec6-44f1-b5a4-048c70766fc7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="z4w_amxx\sdk\amxxmodule.cpp">
+      <Filter>sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\hlsdk\pm_defs.ixx">
+      <Filter>hlsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\plugin.cpp" />
+    <ClCompile Include="z4w_amxx\x_semiclip.ixx" />
+    <ClCompile Include="z4w_amxx\hlsdk\usercmd.ixx">
+      <Filter>hlsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\hlsdk\progdefs.ixx">
+      <Filter>hlsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\hlsdk\pmtrace.ixx">
+      <Filter>hlsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\hlsdk\pm_info.ixx">
+      <Filter>hlsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\hlsdk\consts.ixx">
+      <Filter>hlsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\hlsdk\custom.ixx">
+      <Filter>hlsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\hlsdk\cvardef.ixx">
+      <Filter>hlsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\hlsdk\edict.ixx">
+      <Filter>hlsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\hlsdk\eiface.ixx">
+      <Filter>hlsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\hlsdk\entity_state.ixx">
+      <Filter>hlsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\hlsdk\weaponinfo.ixx">
+      <Filter>hlsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\hlsdk\extdll.ixx">
+      <Filter>hlsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\hlsdk\enginecallback.ixx">
+      <Filter>hlsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\hlsdk\Sequence.ixx">
+      <Filter>hlsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\hlsdk\util.ixx">
+      <Filter>hlsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\hlsdk\globals.ixx">
+      <Filter>hlsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\hlsdk\types.ixx">
+      <Filter>hlsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\sdk\amxxmodule.ixx">
+      <Filter>sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\amxx\dhudmessage.ixx">
+      <Filter>amxx</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\amxx\message_const.ixx">
+      <Filter>amxx</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\plugin.ixx" />
+    <ClCompile Include="z4w_amxx\x_alarm.ixx" />
+    <ClCompile Include="z4w_amxx\SourceSDK\Color.ixx">
+      <Filter>SourceSDK</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\amxx\amxmodx.ixx">
+      <Filter>amxx</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\amxx\amxconst.ixx">
+      <Filter>amxx</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\amxx\hudmessage.ixx">
+      <Filter>amxx</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\amxx\amxmodx_util.ixx">
+      <Filter>amxx</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\amxx\amxmodx_timer.ixx">
+      <Filter>amxx</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\amxx\amxmodx_detail.ixx">
+      <Filter>amxx</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\amxx\amxmodx_detail.cpp">
+      <Filter>amxx</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\stock.ixx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="z4w_amxx\sdk\amxxmodule.h">
+      <Filter>sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="z4w_amxx\moduleconfig.h" />
+    <ClInclude Include="z4w_amxx\amxx\amxmodx_detail.h">
+      <Filter>amxx</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

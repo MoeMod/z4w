@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="z4w_amxx\amxx\amxconst.ixx" />
+    <ClCompile Include="z4w_amxx\amxx\amxmodx_detail.cpp" />
+    <ClCompile Include="z4w_amxx\amxx\amxmodx.ixx" />
+    <ClCompile Include="z4w_amxx\amxx\amxmodx_detail.ixx" />
+    <ClCompile Include="z4w_amxx\amxx\amxmodx_timer.ixx" />
+    <ClCompile Include="z4w_amxx\amxx\amxmodx_util.ixx" />
+    <ClCompile Include="z4w_amxx\amxx\hudmessage.ixx" />
+    <ClCompile Include="z4w_amxx\stock.ixx" />
+    <ClCompile Include="z4w_amxx\x_alarm.ixx" />
+    <ClCompile Include="z4w_amxx\amxx\dhudmessage.ixx" />
+    <ClCompile Include="z4w_amxx\amxx\message_const.ixx" />
+    <ClCompile Include="z4w_amxx\hlsdk\consts.ixx" />
+    <ClCompile Include="z4w_amxx\hlsdk\custom.ixx" />
+    <ClCompile Include="z4w_amxx\hlsdk\cvardef.ixx" />
+    <ClCompile Include="z4w_amxx\hlsdk\edict.ixx" />
+    <ClCompile Include="z4w_amxx\hlsdk\eiface.ixx" />
+    <ClCompile Include="z4w_amxx\hlsdk\entity_state.ixx" />
+    <ClCompile Include="z4w_amxx\hlsdk\globals.ixx" />
+    <ClCompile Include="z4w_amxx\hlsdk\pmtrace.ixx" />
+    <ClCompile Include="z4w_amxx\hlsdk\pm_info.ixx" />
+    <ClCompile Include="z4w_amxx\hlsdk\progdefs.ixx" />
+    <ClCompile Include="z4w_amxx\hlsdk\types.ixx" />
+    <ClCompile Include="z4w_amxx\hlsdk\pm_defs.ixx" />
+    <ClCompile Include="z4w_amxx\hlsdk\enginecallback.ixx" />
+    <ClCompile Include="z4w_amxx\hlsdk\extdll.ixx" />
+    <ClCompile Include="z4w_amxx\hlsdk\Sequence.ixx" />
+    <ClCompile Include="z4w_amxx\hlsdk\util.ixx" />
+    <ClCompile Include="z4w_amxx\hlsdk\usercmd.ixx" />
+    <ClCompile Include="z4w_amxx\hlsdk\weaponinfo.ixx" />
+    <ClCompile Include="z4w_amxx\plugin.cpp" />
+    <ClCompile Include="z4w_amxx\plugin.ixx" />
+    <ClCompile Include="z4w_amxx\sdk\amxxmodule.cpp" />
+    <ClCompile Include="z4w_amxx\sdk\amxxmodule.ixx" />
+    <ClCompile Include="z4w_amxx\x_semiclip.ixx" />
+    <ClCompile Include="z4w_amxx\SourceSDK\Color.ixx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="z4w_amxx\amxx\amxmodx_detail.h" />
+    <ClInclude Include="z4w_amxx\moduleconfig.h" />
+    <ClInclude Include="z4w_amxx\sdk\amxxmodule.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{b1a1e830-9e6a-4840-8d1c-7b1515b76998}</ProjectGuid>
+    <RootNamespace>z4w</RootNamespace>
+    <ProjectName>z4w_amxx</ProjectName>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>z4w_amxx</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <TargetName>z4w_amxx</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>z4w_amxx</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <TargetName>z4w_amxx</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg">
+    <VcpkgEnabled>true</VcpkgEnabled>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <AdditionalIncludeDirectories>z4w_amxx/;z4w_amxx/sdk/;3rdparty/boost/asio/include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>BOOST_ASIO_STANDALONE;_CRT_SECURE_NO_WARNINGS;HAVE_STDINT_H;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <AdditionalIncludeDirectories>z4w_amxx/;z4w_amxx/sdk/;3rdparty/boost/asio/include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>BOOST_ASIO_STANDALONE;_CRT_SECURE_NO_WARNINGS;HAVE_STDINT_H;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <AdditionalIncludeDirectories>z4w_amxx/;z4w_amxx/sdk/;3rdparty/boost/asio/include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>BOOST_ASIO_STANDALONE;_CRT_SECURE_NO_WARNINGS;HAVE_STDINT_H;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <AdditionalIncludeDirectories>z4w_amxx/;z4w_amxx/sdk/;3rdparty/boost/asio/include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>BOOST_ASIO_STANDALONE;_CRT_SECURE_NO_WARNINGS;HAVE_STDINT_H;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
