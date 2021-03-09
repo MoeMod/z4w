@@ -8,6 +8,7 @@ export module amxx.dhudmessage;
 
 import hlsdk.enginecallback;
 import hlsdk.util;
+import amxx.convert;
 import amxx.message_const;
 import amxxmodule;
 
@@ -45,7 +46,7 @@ export namespace amxx {
         __dhud_reliable = reliable;
     }
 
-    void send_dhudmessage(const int index, const char *message)
+    void send_dhudmessage(auto_ent<int> index, const char *message)
     {
         MESSAGE_BEGIN(__dhud_reliable ? (index ? MSG_ONE : MSG_ALL) : (index ? MSG_ONE_UNRELIABLE : MSG_BROADCAST), SVC_DIRECTOR, nullptr, index ? MF_GetPlayerEdict(index) : nullptr);
         {
@@ -64,7 +65,7 @@ export namespace amxx {
         MESSAGE_END();
     }
 
-    void show_dhudmessage(int index, const char *message, ...)
+    void show_dhudmessage(auto_ent<int> index, const char *message, ...)
     {
         char buffer[255];
         va_list va;

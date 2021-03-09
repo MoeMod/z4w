@@ -78,7 +78,7 @@ export namespace hlsdk
 	}
 
 #if defined(_DEBUG) && !defined(CLIENT_DLL)
-	edict_t* DBG_EntOfVars(const entvars_t* pev)
+	edict_t* DBG_EntOfVars(entvars_t* pev)
 	{
 		if (pev->pContainingEntity != NULL)
 			return pev->pContainingEntity;
@@ -93,9 +93,9 @@ export namespace hlsdk
 		((entvars_t*)pev)->pContainingEntity = pent;
 		return pent;
 	}
-	inline edict_t* ENT(const entvars_t* pev) { return DBG_EntOfVars(pev); }
+	inline edict_t* ENT(entvars_t* pev) { return DBG_EntOfVars(pev); }
 #else
-	inline edict_t* ENT(const entvars_t* pev)
+	inline edict_t* ENT(entvars_t* pev)
 	{
 		return pev->pContainingEntity;
 	}
@@ -106,7 +106,7 @@ export namespace hlsdk
 		return (*g_engfuncs.pfnPEntityOfEntOffset)(eoffset);
 	}
 
-	inline EOFFSET OFFSET(const edict_t* pent)
+	inline EOFFSET OFFSET(edict_t* pent)
 	{
 #if _DEBUG
 		if (!pent)
@@ -115,7 +115,7 @@ export namespace hlsdk
 		return (*g_engfuncs.pfnEntOffsetOfPEntity)(pent);
 	}
 
-	inline EOFFSET OFFSET(const entvars_t* pev)
+	inline EOFFSET OFFSET(entvars_t* pev)
 	{
 		return OFFSET(ENT(pev));
 	}
@@ -133,7 +133,7 @@ export namespace hlsdk
 		return VARS(ENT(eoffset));
 	}
 
-	inline int ENTINDEX(const edict_t* pEdict)
+	inline int ENTINDEX(edict_t* pEdict)
 	{
 		return (*g_engfuncs.pfnIndexOfEdict)(pEdict);
 	}
@@ -143,16 +143,11 @@ export namespace hlsdk
 		return (*g_engfuncs.pfnPEntityOfEntIndex)(iEdictNum);
 	}
 
-	inline void MESSAGE_BEGIN(int msg_dest, int msg_type, const float* pOrigin, entvars_t* ent)
-	{
-		MESSAGE_BEGIN(msg_dest, msg_type, pOrigin, ENT(ent));
-	}
-
 	inline BOOL FNullEnt(EOFFSET eoffset)
 	{
 		return eoffset == 0;
 	}
-	inline BOOL FNullEnt(const edict_t* pent)
+	inline BOOL FNullEnt(edict_t* pent)
 	{
 		return pent == nullptr || FNullEnt(OFFSET(pent));
 	}

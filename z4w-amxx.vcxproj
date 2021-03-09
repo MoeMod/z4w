@@ -25,6 +25,7 @@
     <ClCompile Include="z4w_amxx\amxx\amxmodx_detail.ixx" />
     <ClCompile Include="z4w_amxx\amxx\amxmodx_timer.ixx" />
     <ClCompile Include="z4w_amxx\amxx\amxmodx_util.ixx" />
+    <ClCompile Include="z4w_amxx\amxx\convert.ixx" />
     <ClCompile Include="z4w_amxx\amxx\hudmessage.ixx" />
     <ClCompile Include="z4w_amxx\stock.ixx" />
     <ClCompile Include="z4w_amxx\x_alarm.ixx" />

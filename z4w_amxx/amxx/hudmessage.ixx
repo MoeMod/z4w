@@ -10,6 +10,7 @@ import hlsdk.enginecallback;
 import hlsdk.util;
 import amxx.message_const;
 import amxx.amxmodx_util;
+import amxx.convert;
 import amxxmodule;
 
 using namespace hlsdk;
@@ -53,7 +54,7 @@ export namespace amxx {
 		return ilow;
 	}
 
-	int send_hudmessage(int index, const char *message) /* 2 param */
+	int send_hudmessage(auto_ent<int> index, const char *message) /* 2 param */
 	{
 		int len = 0;
 

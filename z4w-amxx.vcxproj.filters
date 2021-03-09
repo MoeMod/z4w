@@ -110,6 +110,9 @@
       <Filter>amxx</Filter>
     </ClCompile>
     <ClCompile Include="z4w_amxx\stock.ixx" />
+    <ClCompile Include="z4w_amxx\amxx\convert.ixx">
+      <Filter>amxx</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="z4w_amxx\sdk\amxxmodule.h">

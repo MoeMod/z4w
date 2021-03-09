@@ -4,6 +4,7 @@ module;
 export module amxx.amxmodx_util;
 import hlsdk.extdll;
 import hlsdk.util;
+import amxx.convert;
 import amxx.message_const;
 
 using namespace hlsdk;
@@ -75,7 +76,7 @@ export namespace amxx {
 		return (short)output;
 	}
 
-	void UTIL_HudMessage(edict_t* pEntity, const hudtextparms_t& textparms, const char* pMessage)
+	void UTIL_HudMessage(auto_ent<edict_t*> pEntity, const hudtextparms_t& textparms, const char* pMessage)
 	{
 		if (pEntity)
 			MESSAGE_BEGIN(MSG_ONE_UNRELIABLE, SVC_TEMPENTITY, nullptr, pEntity);
