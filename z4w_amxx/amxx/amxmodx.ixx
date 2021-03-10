@@ -8,7 +8,6 @@ module;
 #include <meta_api.h>
 
 export module amxx.amxmodx;
-
 import hlsdk.extdll;
 import hlsdk.util;
 export import amxx.message_const;
@@ -17,6 +16,7 @@ export import amxx.hudmessage;
 export import amxx.dhudmessage;
 export import amxx.amxmodx_timer;
 export import amxx.convert;
+export import amxx.coroutine;
 import amxxmodule;
 
 using namespace hlsdk;

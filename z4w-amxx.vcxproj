@@ -26,8 +26,12 @@
     <ClCompile Include="z4w_amxx\amxx\amxmodx_timer.ixx" />
     <ClCompile Include="z4w_amxx\amxx\amxmodx_util.ixx" />
     <ClCompile Include="z4w_amxx\amxx\convert.ixx" />
+    <ClCompile Include="z4w_amxx\amxx\coroutine.ixx" />
     <ClCompile Include="z4w_amxx\amxx\hudmessage.ixx" />
     <ClCompile Include="z4w_amxx\amxx\messages.ixx" />
+    <ClCompile Include="z4w_amxx\hlsdk\cbase.ixx" />
+    <ClCompile Include="z4w_amxx\hlsdk\cbase_consts.ixx" />
+    <ClCompile Include="z4w_amxx\hlsdk\saverestore.ixx" />
     <ClCompile Include="z4w_amxx\stock.ixx" />
     <ClCompile Include="z4w_amxx\util\Encode.ixx" />
     <ClCompile Include="z4w_amxx\util\qqwry.cpp" />

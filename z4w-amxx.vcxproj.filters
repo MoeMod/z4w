@@ -136,6 +136,18 @@
       <Filter>util</Filter>
     </ClCompile>
     <ClCompile Include="z4w_amxx\x_iplocation.ixx" />
+    <ClCompile Include="z4w_amxx\hlsdk\cbase.ixx">
+      <Filter>hlsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\hlsdk\cbase_consts.ixx">
+      <Filter>hlsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\hlsdk\saverestore.ixx">
+      <Filter>hlsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\amxx\coroutine.ixx">
+      <Filter>amxx</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="z4w_amxx\sdk\amxxmodule.h">

@@ -1,6 +1,6 @@
 module;
 #include <stdio.h>
-#include <string.h>
+#include <string>
 
 export module stock;
 import amxx.amxmodx;
@@ -46,11 +46,11 @@ export namespace stock {
         }
     }
 
-    void client_color(auto_ent<int> playerid, int colorid, const char* msg)
+    void client_color(auto_ent<int> playerid, int colorid, std::string msg)
     {
         MESSAGE_BEGIN(playerid ? MSG_ONE : MSG_ALL, get_user_msgid("SayText"), nullptr, playerid ? ent_cast<edict_t*>(playerid) : nullptr);
         WRITE_BYTE(colorid);
-        WRITE_STRING(msg);
+        WRITE_STRING(msg.c_str());
         MESSAGE_END();
     }
 }

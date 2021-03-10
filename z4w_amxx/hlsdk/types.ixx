@@ -488,6 +488,7 @@ export namespace hlsdk
 	typedef unsigned int uint32; //!!!
 
 	typedef int EOFFSET;
+	typedef unsigned int ULONG;
 	typedef int string_t;
 
 	using Vector2D = VectorBase<float, 2>;

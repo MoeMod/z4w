@@ -16,6 +16,93 @@ export namespace hlsdk
 {
 	extern globalvars_t* gpGlobals;
 
+	constexpr float VIEW_FIELD_FULL = -1.0f;		// +-180 degrees
+	constexpr float VIEW_FIELD_WIDE = -0.7f;		// +-135 degrees 0.1 // +-85 degrees, used for full FOV checks
+	constexpr float VIEW_FIELD_NARROW = 0.7f;		// +-45 degrees, more narrow check used to set up ranged attacks
+	constexpr float VIEW_FIELD_ULTRA_NARROW = 0.9f;		// +-25 degrees, more narrow check used to set up ranged attacks
+
+	constexpr auto SND_SPAWNING = (1 << 8);		// duplicated in protocol.h we're spawing, used in some cases for ambients
+	constexpr auto SND_STOP = (1 << 5);		// duplicated in protocol.h stop sound
+	constexpr auto SND_CHANGE_VOL = (1 << 6);		// duplicated in protocol.h change sound vol
+	constexpr auto SND_CHANGE_PITCH = (1 << 7);		// duplicated in protocol.h change sound pitch
+
+	constexpr int DONT_BLEED = -1;
+	constexpr byte BLOOD_COLOR_RED = (byte)247;
+	constexpr byte BLOOD_COLOR_YELLOW = (byte)195;
+	constexpr auto BLOOD_COLOR_GREEN = BLOOD_COLOR_YELLOW;
+
+	constexpr auto GERMAN_GIB_COUNT = 4;
+	constexpr auto HUMAN_GIB_COUNT = 6;
+	constexpr auto ALIEN_GIB_COUNT = 4;
+
+	constexpr auto LANGUAGE_ENGLISH = 0;
+	constexpr auto LANGUAGE_GERMAN = 1;
+	constexpr auto LANGUAGE_FRENCH = 2;
+	constexpr auto LANGUAGE_BRITISH = 3;
+
+	constexpr int SF_TRIG_PUSH_ONCE = 1;
+	// func_rotating
+	constexpr int SF_BRUSH_ROTATE_Y_AXIS = 0;
+	constexpr int SF_BRUSH_ROTATE_INSTANT = 1;
+	constexpr int SF_BRUSH_ROTATE_BACKWARDS = 2;
+	constexpr int SF_BRUSH_ROTATE_Z_AXIS = 4;
+	constexpr int SF_BRUSH_ROTATE_X_AXIS = 8;
+	constexpr int SF_PENDULUM_AUTO_RETURN = 16;
+	constexpr int SF_PENDULUM_PASSABLE = 32;
+	constexpr int SF_BRUSH_ROTATE_SMALLRADIUS = 128;
+	constexpr int SF_BRUSH_ROTATE_MEDIUMRADIUS = 256;
+	constexpr int SF_BRUSH_ROTATE_LARGERADIUS = 512;
+	constexpr int SPAWNFLAG_NOMESSAGE = 1;
+	constexpr int SPAWNFLAG_NOTOUCH = 1;
+	constexpr int SPAWNFLAG_DROIDONLY = 4;
+
+	typedef enum
+	{
+		ignore_monsters = 1,
+		dont_ignore_monsters = 0,
+		missile = 2
+
+	} IGNORE_MONSTERS;
+
+	typedef enum
+	{
+		ignore_glass = 1,
+		dont_ignore_glass = 0
+
+	} IGNORE_GLASS;
+
+	enum
+	{
+		point_hull = 0,
+		human_hull = 1,
+		large_hull = 2,
+		head_hull = 3
+	};
+
+	typedef enum
+	{
+		MONSTERSTATE_NONE = 0,
+		MONSTERSTATE_IDLE,
+		MONSTERSTATE_COMBAT,
+		MONSTERSTATE_ALERT,
+		MONSTERSTATE_HUNT,
+		MONSTERSTATE_PRONE,
+		MONSTERSTATE_SCRIPT,
+		MONSTERSTATE_PLAYDEAD,
+		MONSTERSTATE_DEAD
+
+	} MONSTERSTATE;
+
+	// Things that toggle (buttons/triggers/doors) need this
+	typedef enum
+	{
+		TS_AT_TOP,
+		TS_AT_BOTTOM,
+		TS_GOING_UP,
+		TS_GOING_DOWN,
+
+	} TOGGLE_STATE;
+
 	typedef struct hudtextparms_s
 	{
 		float		x;
