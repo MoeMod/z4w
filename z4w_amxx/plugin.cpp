@@ -9,6 +9,7 @@ import amxxmodule;
 import plugin;
 import x_alarm;
 import x_semiclip;
+import x_jointip;
 
 namespace plugin {
 	int g_iForwards[TOTAL_FORWARDS];
@@ -60,6 +61,18 @@ void PlayerPreThink(edict_t* pPlayer)
 void PlayerPostThink(edict_t* pPlayer)
 {
 	x_semiclip::PlayerPostThink(pPlayer);
+	RETURN_META(MRES_HANDLED);
+}
+
+void ClientPutInServer(edict_t* pPlayer)
+{
+	x_jointip::ClientPutInServer(pPlayer);
+	RETURN_META(MRES_HANDLED);
+}
+
+void ClientDisconnect(edict_t* pPlayer)
+{
+	x_jointip::ClientDisconnect(pPlayer);
 	RETURN_META(MRES_HANDLED);
 }
 

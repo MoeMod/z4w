@@ -13,6 +13,9 @@
     <Filter Include="SourceSDK">
       <UniqueIdentifier>{7fa0fb36-9ec6-44f1-b5a4-048c70766fc7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="util">
+      <UniqueIdentifier>{10a70f10-47d0-473e-8f87-99560cc472c1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="z4w_amxx\sdk\amxxmodule.cpp">
@@ -112,6 +115,25 @@
     <ClCompile Include="z4w_amxx\stock.ixx" />
     <ClCompile Include="z4w_amxx\amxx\convert.ixx">
       <Filter>amxx</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\util\Reciter.ixx">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\util\Reciter.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\util\qqwry.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\util\qqwry.ixx">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\x_jointip.ixx" />
+    <ClCompile Include="z4w_amxx\amxx\messages.ixx">
+      <Filter>amxx</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\util\Encode.ixx">
+      <Filter>util</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

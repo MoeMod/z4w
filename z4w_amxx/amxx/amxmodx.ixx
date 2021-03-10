@@ -5,6 +5,8 @@ module;
 #include <string>
 #include <stdarg.h>
 
+#include <meta_api.h>
+
 export module amxx.amxmodx;
 
 import hlsdk.extdll;
@@ -33,6 +35,14 @@ export namespace amxx {
 	std::string get_user_name(auto_ent<int> id)
 	{
 		return MF_GetPlayerName(id);
+	}
+
+	std::string get_user_ip(auto_ent<int> id, bool without_port = false)
+	{
+		std::string res = (id == 0) ? CVAR_GET_STRING("net_address") : MF_GetPlayerIP(id);
+		if (without_port)
+			res.resize(res.find(':'));
+		return res;
 	}
 
 	void client_cmd(auto_ent<int> index, const char* command)
@@ -96,5 +106,10 @@ export namespace amxx {
 		if (!is_user_connected(id))
 			return false;
 		return MF_IsPlayerAlive(id);
+	}
+
+	int get_user_msgid(const char* name)
+	{
+		return GET_USER_MSG_ID(PLID, name, NULL);
 	}
 }
