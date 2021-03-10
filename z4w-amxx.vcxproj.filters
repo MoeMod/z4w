@@ -135,6 +135,7 @@
     <ClCompile Include="z4w_amxx\util\Encode.ixx">
       <Filter>util</Filter>
     </ClCompile>
+    <ClCompile Include="z4w_amxx\x_iplocation.ixx" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="z4w_amxx\sdk\amxxmodule.h">
