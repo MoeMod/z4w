@@ -142,8 +142,5 @@
       <Filter>sdk</Filter>
     </ClInclude>
     <ClInclude Include="z4w_amxx\moduleconfig.h" />
-    <ClInclude Include="z4w_amxx\amxx\amxmodx_detail.h">
-      <Filter>amxx</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

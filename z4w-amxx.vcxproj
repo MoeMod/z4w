@@ -65,7 +65,6 @@
     <ClCompile Include="z4w_amxx\SourceSDK\Color.ixx" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="z4w_amxx\amxx\amxmodx_detail.h" />
     <ClInclude Include="z4w_amxx\moduleconfig.h" />
     <ClInclude Include="z4w_amxx\sdk\amxxmodule.h" />
   </ItemGroup>

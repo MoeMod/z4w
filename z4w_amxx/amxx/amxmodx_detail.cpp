@@ -1,8 +1,11 @@
+
+module;
 #include <boost/asio.hpp>
 #include <chrono>
+#include <functional>
 
+module amxx.amxmodx_detail;
 import hlsdk.types;
-import amxx.amxmodx_detail;
 
 using namespace hlsdk;
 
@@ -18,7 +21,7 @@ namespace amxx
 			ioc.poll();
 		}
 
-		void AMXX_StartFrame()
+		void StartFrame()
 		{
 			Timer_StartFrame();
 		}

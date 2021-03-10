@@ -1,14 +1,11 @@
 module;
-#include "amxmodx_detail.h"
+#include <functional>
 export module amxx.amxmodx_detail;
 import hlsdk.types;
-import amxx.amxmodx_timer;
 
 export namespace amxx {
 	namespace detail {
-		void StartFrame()
-		{
-			AMXX_StartFrame();
-		}
+		void StartFrame();
+		void set_task(hlsdk::duration_t time, std::function<void()> function);
 	}
 }

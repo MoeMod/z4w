@@ -1,8 +1,8 @@
 module;
 #include <map>
 #include <functional>
-#include "amxmodx_detail.h"
 export module amxx.amxmodx_timer;
+import amxx.amxmodx_detail;
 import hlsdk.types;
 
 using namespace hlsdk;
