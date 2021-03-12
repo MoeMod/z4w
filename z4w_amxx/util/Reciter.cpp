@@ -1,5 +1,5 @@
 module;
-#include <nlohmann/json.hpp>
+#include <nlohmann/json.hpp> // vcpkg install nlohmann-json
 #include <random>
 #include <fstream>
 #include <sstream>

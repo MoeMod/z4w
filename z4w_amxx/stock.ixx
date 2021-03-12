@@ -13,7 +13,7 @@ using namespace hlsdk;
 using namespace amxxmodule;
 
 export namespace stock {
-    void PlaySound(int index, const char* szSound, bool stop_sounds_first = false)
+    void PlaySound(auto_ent<int> index, const char* szSound, bool stop_sounds_first = false)
     {
         if (!szSound || !szSound[0])
             return;
