@@ -70,6 +70,7 @@
     <ClCompile Include="z4w_amxx\plugin.ixx" />
     <ClCompile Include="z4w_amxx\sdk\amxxmodule.cpp" />
     <ClCompile Include="z4w_amxx\sdk\amxxmodule.ixx" />
+    <ClCompile Include="z4w_amxx\x_hook.ixx" />
     <ClCompile Include="z4w_amxx\x_iplocation.ixx" />
     <ClCompile Include="z4w_amxx\x_jointip.ixx" />
     <ClCompile Include="z4w_amxx\x_semiclip.ixx" />

@@ -156,4 +156,8 @@ export namespace x_semiclip {
 		return PLUGIN_CONTINUE;
 	}
 
+	void plugin_init()
+	{
+
+	}
 }

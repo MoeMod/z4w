@@ -178,6 +178,7 @@
     <ClCompile Include="z4w_amxx\metahook\metahook.ixx">
       <Filter>metahook</Filter>
     </ClCompile>
+    <ClCompile Include="z4w_amxx\x_hook.ixx" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="z4w_amxx\sdk\amxxmodule.h">

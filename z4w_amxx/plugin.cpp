@@ -7,6 +7,7 @@
 
 import amxxmodule;
 import plugin;
+import x_hook;
 import x_alarm;
 import x_semiclip;
 import x_jointip;
@@ -37,6 +38,7 @@ void OnPluginsLoaded(void)
 	g_iForwards[FW_Semiclip] = MF_RegisterForward("x_fw_api_semiclip", ET_CONTINUE, FP_CELL, FP_CELL, FP_DONE);
 	g_iForwards[FW_ALARM_SHOW_PRE] = MF_RegisterForward("x_fw_alarm_show_pre", ET_CONTINUE, FP_CELL, FP_ARRAY, FP_ARRAY, FP_ARRAY, FP_ARRAY, FP_FLOAT, FP_DONE);
 	g_iForwards[FW_ALARM_SHOW_POST] = MF_RegisterForward("x_fw_alarm_show_post", ET_IGNORE, FP_CELL, FP_ARRAY, FP_ARRAY, FP_ARRAY, FP_ARRAY, FP_FLOAT, FP_DONE);
+	x_hook::plugin_init();
 	x_alarm::plugin_init();
 }
 
