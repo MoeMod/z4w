@@ -22,6 +22,9 @@
     <Filter Include="cssdk">
       <UniqueIdentifier>{0105cecd-cf59-4495-8549-03ae121a05d3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="metahook">
+      <UniqueIdentifier>{2eca8686-38df-430f-907f-a438b3b3318b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="z4w_amxx\sdk\amxxmodule.cpp">
@@ -171,6 +174,9 @@
     </ClCompile>
     <ClCompile Include="z4w_amxx\cssdk\player_consts.ixx">
       <Filter>cssdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\metahook\metahook.ixx">
+      <Filter>metahook</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

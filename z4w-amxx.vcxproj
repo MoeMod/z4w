@@ -38,6 +38,7 @@
     <ClCompile Include="z4w_amxx\hlsdk\cbase.ixx" />
     <ClCompile Include="z4w_amxx\hlsdk\cbase_consts.ixx" />
     <ClCompile Include="z4w_amxx\hlsdk\saverestore.ixx" />
+    <ClCompile Include="z4w_amxx\metahook\metahook.ixx" />
     <ClCompile Include="z4w_amxx\stock.ixx" />
     <ClCompile Include="z4w_amxx\util\Encode.ixx" />
     <ClCompile Include="z4w_amxx\util\qqwry.cpp" />
