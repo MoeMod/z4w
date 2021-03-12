@@ -7,11 +7,9 @@ import hlsdk.progdefs;
 
 export namespace hlsdk
 {
-	typedef struct edict_s edict_t;
-
 	constexpr auto MAX_ENT_LEAFS = 48;
 
-	struct edict_s
+	typedef struct edict_s
 	{
 		qboolean		free;
 		int		serialnumber;
@@ -28,5 +26,5 @@ export namespace hlsdk
 		entvars_t		v;		// C exported fields from progs
 
 		// other fields from progs come immediately after
-	};
+	} edict_t;
 }

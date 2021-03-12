@@ -29,6 +29,12 @@
     <ClCompile Include="z4w_amxx\amxx\coroutine.ixx" />
     <ClCompile Include="z4w_amxx\amxx\hudmessage.ixx" />
     <ClCompile Include="z4w_amxx\amxx\messages.ixx" />
+    <ClCompile Include="z4w_amxx\cssdk\player_consts.ixx" />
+    <ClCompile Include="z4w_amxx\czsdk\bot_util.ixx" />
+    <ClCompile Include="z4w_amxx\czsdk\GameEvent.ixx" />
+    <ClCompile Include="z4w_amxx\czsdk\improv.ixx" />
+    <ClCompile Include="z4w_amxx\czsdk\nav.ixx" />
+    <ClCompile Include="z4w_amxx\czsdk\steam_util.ixx" />
     <ClCompile Include="z4w_amxx\hlsdk\cbase.ixx" />
     <ClCompile Include="z4w_amxx\hlsdk\cbase_consts.ixx" />
     <ClCompile Include="z4w_amxx\hlsdk\saverestore.ixx" />

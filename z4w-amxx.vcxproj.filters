@@ -16,6 +16,12 @@
     <Filter Include="util">
       <UniqueIdentifier>{10a70f10-47d0-473e-8f87-99560cc472c1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="czsdk">
+      <UniqueIdentifier>{4cb6e4d3-d866-451d-b318-408d9ef546eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="cssdk">
+      <UniqueIdentifier>{0105cecd-cf59-4495-8549-03ae121a05d3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="z4w_amxx\sdk\amxxmodule.cpp">
@@ -147,6 +153,24 @@
     </ClCompile>
     <ClCompile Include="z4w_amxx\amxx\coroutine.ixx">
       <Filter>amxx</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\czsdk\nav.ixx">
+      <Filter>czsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\czsdk\improv.ixx">
+      <Filter>czsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\czsdk\GameEvent.ixx">
+      <Filter>czsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\czsdk\steam_util.ixx">
+      <Filter>czsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\czsdk\bot_util.ixx">
+      <Filter>czsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\cssdk\player_consts.ixx">
+      <Filter>cssdk</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

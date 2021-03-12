@@ -269,7 +269,14 @@ export namespace hlsdk
 		g_engfuncs.pfnAngleVectors(vecAngles, p_vForward, p_vRight, p_vUp);
 	}
 
-
+	void UTIL_TraceLine(const Vector& vecStart, const Vector& vecEnd, IGNORE_MONSTERS igmon, edict_t* pentIgnore, TraceResult* ptr)
+	{
+		return TRACE_LINE(vecStart, vecEnd, (igmon == ignore_monsters), pentIgnore, ptr);
+	}
+	void UTIL_TraceLine(const Vector& vecStart, const Vector& vecEnd, IGNORE_MONSTERS igmon, IGNORE_GLASS ignoreGlass, edict_t* pentIgnore, TraceResult* ptr)
+	{
+		return TRACE_LINE(vecStart, vecEnd, (igmon == ignore_monsters) | (ignoreGlass ? 0x100 : 0), pentIgnore, ptr);
+	}
 
 	char* UTIL_VarArgs(const char* format, ...)
 	{
