@@ -94,7 +94,7 @@ export namespace hlsdk
 	} MONSTERSTATE;
 
 	// Things that toggle (buttons/triggers/doors) need this
-	typedef enum
+	typedef enum : int
 	{
 		TS_AT_TOP,
 		TS_AT_BOTTOM,

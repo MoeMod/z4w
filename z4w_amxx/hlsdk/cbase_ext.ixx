@@ -14,16 +14,16 @@ export namespace hlsdk {
 	class CPointEntity : public CBaseEntity
 	{
 	public:
-		void Spawn(void);
-		int ObjectCaps(void) { return CBaseEntity::ObjectCaps() & ~FCAP_ACROSS_TRANSITION; }
+		void Spawn(void) override;
+		int ObjectCaps(void) override { return CBaseEntity::ObjectCaps() & ~FCAP_ACROSS_TRANSITION; }
 	};
 
 	class CBaseDelay : public CBaseEntity
 	{
 	public:
-		void KeyValue(KeyValueData* pkvd);
-		int Save(CSave& save);
-		int Restore(CRestore& restore);
+		void KeyValue(KeyValueData* pkvd) override;
+		int Save(CSave& save) override;
+		int Restore(CRestore& restore) override;
 
 	public:
 		void SUB_UseTargets(CBaseEntity* pActivator, USE_TYPE useType, float value);
@@ -42,8 +42,8 @@ export namespace hlsdk {
 	class CBaseAnimating : public CBaseDelay
 	{
 	public:
-		int Save(CSave& save);
-		int Restore(CRestore& restore);
+		int Save(CSave& save) override;
+		int Restore(CRestore& restore) override;
 		virtual void HandleAnimEvent(MonsterEvent_t* pEvent) {}
 
 	public:
@@ -80,11 +80,11 @@ export namespace hlsdk {
 	class CBaseToggle : public CBaseAnimating
 	{
 	public:
-		void KeyValue(KeyValueData* pkvd);
-		int Save(CSave& save);
-		int Restore(CRestore& restore);
-		int GetToggleState(void) { return m_toggle_state; }
-		duration_t GetDelay(void) { return m_flWait; }
+		void KeyValue(KeyValueData* pkvd) override;
+		int Save(CSave& save) override;
+		int Restore(CRestore& restore) override;
+		int GetToggleState(void) override { return m_toggle_state; }
+		duration_t GetDelay(void) override { return m_flWait; }
 
 	public:
 		void LinearMove(Vector vecDest, float flSpeed);

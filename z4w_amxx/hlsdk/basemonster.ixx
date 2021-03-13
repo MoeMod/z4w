@@ -9,6 +9,12 @@ export namespace hlsdk {
 	{
 	public:
 		void KeyValue(KeyValueData* pkvd) override;
+		void TraceAttack(entvars_t* pevAttacker, float flDamage, Vector vecDir, TraceResult* ptr, int bitsDamageType) override;
+		int TakeDamage(entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) override;
+		int TakeHealth(float flHealth, int bitsDamageType) override;
+		void Killed(entvars_t* pevAttacker, int iGib) override;
+		int BloodColor(void) override { return m_bloodColor; }
+		BOOL IsAlive(void) override { return (pev->deadflag != DEAD_DEAD); }
 		virtual float ChangeYaw(int speed);
 		virtual BOOL HasHumanGibs(void);
 		virtual BOOL HasAlienGibs(void);
@@ -18,9 +24,6 @@ export namespace hlsdk {
 		virtual void BecomeDead(void);
 		virtual BOOL ShouldFadeOnDeath(void);
 		virtual int IRelationship(CBaseEntity* pTarget);
-		int TakeHealth(float flHealth, int bitsDamageType) override;
-		int TakeDamage(entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int bitsDamageType) override;
-		void Killed(entvars_t* pevAttacker, int iGib) override;
 		virtual void PainSound(void) { return; }
 		virtual void ResetMaxSpeed(void) {};
 		virtual void ReportAIState(void);
@@ -29,8 +32,6 @@ export namespace hlsdk {
 		virtual CBaseEntity* BestVisibleEnemy(void);
 		virtual BOOL FInViewCone(CBaseEntity* pEntity);
 		virtual BOOL FInViewCone(const Vector* pOrigin);
-		int BloodColor(void) override { return m_bloodColor; }
-		BOOL IsAlive(void) override { return (pev->deadflag != DEAD_DEAD); }
 
 	public:
 		void MakeIdealYaw(Vector vecTarget);
@@ -44,36 +45,35 @@ export namespace hlsdk {
 		void RadiusDamage(Vector vecSrc, entvars_t* pevInflictor, entvars_t* pevAttacker, float flDamage, int iClassIgnore, int bitsDamageType);
 		void CorpseFallThink(void);
 		CBaseEntity* CheckTraceHullAttack(float flDist, int iDamage, int iDmgType);
-		void TraceAttack(entvars_t* pevAttacker, float flDamage, Vector vecDir, TraceResult* ptr, int bitsDamageType) override;
 		void MakeDamageBloodDecal(int cCount, float flNoise, TraceResult* ptr, const Vector& vecDir);
 		void BloodSplat(const Vector& vecPos, const Vector& vecDir, int hitgroup, int iDamage);
 
 	public:
-		inline void SetConditions(int iConditions) { m_afConditions |= iConditions; }
-		inline void ClearConditions(int iConditions) { m_afConditions &= ~iConditions; }
-		inline BOOL HasConditions(int iConditions)
+		void SetConditions(int iConditions) { m_afConditions |= iConditions; }
+		void ClearConditions(int iConditions) { m_afConditions &= ~iConditions; }
+		BOOL HasConditions(int iConditions)
 		{
 			if (m_afConditions & iConditions) return TRUE;
 			return FALSE;
 		}
-		inline BOOL HasAllConditions(int iConditions)
+		BOOL HasAllConditions(int iConditions)
 		{
 			if ((m_afConditions & iConditions) == iConditions) return TRUE;
 			return FALSE;
 		}
-		inline void Remember(int iMemory) { m_afMemory |= iMemory; }
-		inline void Forget(int iMemory) { m_afMemory &= ~iMemory; }
-		inline BOOL HasMemory(int iMemory)
+		void Remember(int iMemory) { m_afMemory |= iMemory; }
+		void Forget(int iMemory) { m_afMemory &= ~iMemory; }
+		BOOL HasMemory(int iMemory)
 		{
 			if (m_afMemory & iMemory) return TRUE;
 			return FALSE;
 		}
-		inline BOOL HasAllMemories(int iMemory)
+		BOOL HasAllMemories(int iMemory)
 		{
 			if ((m_afMemory & iMemory) == iMemory) return TRUE;
 			return FALSE;
 		}
-		inline void StopAnimation(void) { pev->framerate = 0; }
+		void StopAnimation(void) { pev->framerate = 0; }
 
 	public:
 		Activity m_Activity;
@@ -92,6 +92,5 @@ export namespace hlsdk {
 		int m_bloodColor;
 		Vector m_HackedGunPos;
 		Vector m_vecEnemyLKP;
-		time_point_t m_timeNextAttack;
 	};
 }
