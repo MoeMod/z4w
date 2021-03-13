@@ -14,16 +14,12 @@ import x_jointip;
 
 namespace plugin {
 	int g_iForwards[TOTAL_FORWARDS];
+	bool g_initialized = false;
+	bool g_activated = false;
 }
 
 using namespace amxxmodule;
 using namespace plugin;
-
-//Register forward
-void ServerDeactivate_Post(void)
-{
-	std::fill_n(g_iForwards, TOTAL_FORWARDS, 0);
-}
 
 void OnAmxxAttach(void)
 {
@@ -31,15 +27,63 @@ void OnAmxxAttach(void)
 
 	extern AMX_NATIVE_INFO Plugin_Natives[];
 	MF_AddNatives(Plugin_Natives);
+	// plugin_natives
 }
 
 void OnPluginsLoaded(void)
 {
+	// plugin_forawrd
 	g_iForwards[FW_Semiclip] = MF_RegisterForward("x_fw_api_semiclip", ET_CONTINUE, FP_CELL, FP_CELL, FP_DONE);
 	g_iForwards[FW_ALARM_SHOW_PRE] = MF_RegisterForward("x_fw_alarm_show_pre", ET_CONTINUE, FP_CELL, FP_ARRAY, FP_ARRAY, FP_ARRAY, FP_ARRAY, FP_FLOAT, FP_DONE);
 	g_iForwards[FW_ALARM_SHOW_POST] = MF_RegisterForward("x_fw_alarm_show_post", ET_IGNORE, FP_CELL, FP_ARRAY, FP_ARRAY, FP_ARRAY, FP_ARRAY, FP_FLOAT, FP_DONE);
+}
+
+int DispatchSpawn(edict_t* pent)
+{
+	if (std::exchange(g_initialized, true))
+		RETURN_META_VALUE(MRES_IGNORED, 0);
+	
+	g_activated = false;
+	// plugin_precache
+	// OnPluginsLoaded
+	RETURN_META_VALUE(MRES_IGNORED, 0);
+}
+
+void ServerActivate_Post(edict_t* pEdictList, int edictCount, int clientMax)
+{
+	if (std::exchange(g_activated, true))
+		RETURN_META(MRES_IGNORED);
+	// plugin_init
+	// plugin_cfg
 	x_hook::plugin_init();
 	x_alarm::plugin_init();
+}
+
+void ServerDeactivate(void)
+{
+	if (!std::exchange(g_activated, false))
+		RETURN_META(MRES_IGNORED);
+	// client_disconnect
+	// client_disconnected
+	// client_remove
+	// plugin_end
+	RETURN_META(MRES_IGNORED);
+}
+
+//Register forward
+void ServerDeactivate_Post(void)
+{
+	if (!std::exchange(g_initialized, false))
+		RETURN_META(MRES_IGNORED);
+
+	std::fill_n(g_iForwards, TOTAL_FORWARDS, 0);
+	RETURN_META(MRES_IGNORED);
+}
+
+void AlertMessage(ALERT_TYPE atype, const char* szFmt, ...)
+{
+	// plugin_log
+	RETURN_META(MRES_IGNORED);
 }
 
 void PM_Move(struct playermove_s* ppmove, int server)

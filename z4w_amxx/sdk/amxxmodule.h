@@ -1070,11 +1070,11 @@ void FN_CVarSetString(const char *szVarName, const char *szValue);
 #endif // FN_CVarSetString
 
 #ifdef FN_AlertMessage
-void FN_AlertMessage(ALERT_TYPE atype, char *szFmt, ...);
+void FN_AlertMessage(ALERT_TYPE atype, const char *szFmt, ...);
 #endif // FN_AlertMessage
 
 #ifdef FN_EngineFprintf
-void FN_EngineFprintf(void *pfile, char *szFmt, ...);
+void FN_EngineFprintf(void *pfile, const char *szFmt, ...);
 #endif // FN_EngineFprintf
 
 #ifdef FN_PvAllocEntPrivateData

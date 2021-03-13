@@ -27,15 +27,17 @@ namespace amxx
 			Timer_StartFrame();
 		}
 
-		void set_task(duration_t time, std::function<void()> function)
+		void set_task(duration_t time, std::function<void()> function, std::function<void(std::error_code)> on_error)
 		{
 			using namespace detail;
 			std::shared_ptr<timer_type> timer = std::make_shared<timer_type>(ioc);
 			timer->expires_from_now(time);
 			timer_map.emplace(0, timer);
-			timer->async_wait([f = std::move(function), timer](const std::error_code& ec) {
+			timer->async_wait([f = std::move(function), on_error = std::move(on_error), timer](const std::error_code& ec) {
 				if (!ec)
 					f();
+				else if(on_error)
+					on_error(ec);
 			});
 		}
 	}
