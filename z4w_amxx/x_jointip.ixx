@@ -25,10 +25,11 @@ export namespace x_jointip {
         auto name = get_user_name(id);
         auto ip = get_user_ip(id);
         auto szMessage = MakeWelcomeMessage(name, ip);
-        while (get_gametime() <= g_flLastShowTime + 1.0s)
-            co_await set_task(1.0s);
-        stock::client_color(0, id, szMessage);
-        g_flLastShowTime = get_gametime();
+        if (co_await set_task(1.0s))
+        {
+            stock::client_color(0, id, szMessage);
+            g_flLastShowTime = get_gametime();
+        }
     }
 
     co_task ClientDisconnect(auto_ent<int> id)
@@ -36,9 +37,10 @@ export namespace x_jointip {
         auto name = get_user_name(id);
         auto ip = get_user_ip(id);
         auto szMessage = "\4[柑橘CitruS]\1 玩家\3" + name + "\1 离开了服务器。";
-        while (get_gametime() <= g_flLastShowTime + 1.0s)
-            co_await set_task(1.0s);
-        stock::client_color(0, id, szMessage);
-        g_flLastShowTime = get_gametime();
+        if (co_await set_task(1.0s))
+        {
+            stock::client_color(0, id, szMessage);
+            g_flLastShowTime = get_gametime();
+        }
     }
 }

@@ -56,6 +56,8 @@ export namespace amxx {
                     throw;
                 }
 
+                void return_void() {}
+
                 std::optional<T> current_value;
             };
 
@@ -92,7 +94,7 @@ export namespace amxx {
             }
 
             // Range-based for loop support.
-            class Iter {
+            class Iter : std::forward_iterator_tag {
             public:
                 void operator++() {
                     m_coroutine.resume();

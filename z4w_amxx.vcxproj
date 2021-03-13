@@ -176,7 +176,7 @@
       <SDLCheck>true</SDLCheck>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalIncludeDirectories>z4w_amxx/;z4w_amxx/sdk/;3rdparty/boost/asio/include</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>BOOST_ASIO_STANDALONE;_CRT_SECURE_NO_WARNINGS;HAVE_STDINT_H;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;HAVE_STDINT_H;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
@@ -193,7 +193,7 @@
       <SDLCheck>true</SDLCheck>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalIncludeDirectories>z4w_amxx/;z4w_amxx/sdk/;3rdparty/boost/asio/include</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>BOOST_ASIO_STANDALONE;_CRT_SECURE_NO_WARNINGS;HAVE_STDINT_H;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;HAVE_STDINT_H;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
@@ -210,7 +210,7 @@
       <SDLCheck>true</SDLCheck>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalIncludeDirectories>z4w_amxx/;z4w_amxx/sdk/;3rdparty/boost/asio/include</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>BOOST_ASIO_STANDALONE;_CRT_SECURE_NO_WARNINGS;HAVE_STDINT_H;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;HAVE_STDINT_H;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
@@ -227,7 +227,7 @@
       <SDLCheck>true</SDLCheck>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalIncludeDirectories>z4w_amxx/;z4w_amxx/sdk/;3rdparty/boost/asio/include</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>BOOST_ASIO_STANDALONE;_CRT_SECURE_NO_WARNINGS;HAVE_STDINT_H;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;HAVE_STDINT_H;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>

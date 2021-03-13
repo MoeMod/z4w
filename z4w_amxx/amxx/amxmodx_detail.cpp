@@ -1,14 +1,16 @@
 
 module;
+#define BOOST_ASIO_NO_DEPRECATED
+#define BOOST_ASIO_STANDALONE
 #include <boost/asio.hpp> // vcpkg install boost-asio
 #include <chrono>
 #include <functional>
+#include <ranges>
 
 module amxx.amxmodx_detail;
 import hlsdk.types;
 
 using namespace hlsdk;
-
 namespace amxx
 {
 	namespace detail {
@@ -27,18 +29,54 @@ namespace amxx
 			Timer_StartFrame();
 		}
 
-		void set_task(duration_t time, std::function<void()> function, std::function<void(std::error_code)> on_error)
+		auto valid_tasks(int taskid)
+		{
+			auto [first, last] = timer_map.equal_range(taskid);
+			return std::ranges::subrange(first, last) | std::ranges::views::values | std::ranges::views::transform([](const auto& wp) {return wp.lock(); });
+		}
+
+		void set_task(duration_t time, std::function<void(std::error_code)> function, int taskid)
 		{
 			using namespace detail;
 			std::shared_ptr<timer_type> timer = std::make_shared<timer_type>(ioc);
-			timer->expires_from_now(time);
-			timer_map.emplace(0, timer);
-			timer->async_wait([f = std::move(function), on_error = std::move(on_error), timer](const std::error_code& ec) {
-				if (!ec)
-					f();
-				else if(on_error)
-					on_error(ec);
+			timer->expires_after(time);
+			timer_map.emplace(taskid, timer);
+			timer->async_wait([f = std::move(function), timer, taskid](const std::error_code& ec) {
+				f(ec);
+				for(auto [iter, last] = timer_map.equal_range(taskid); iter != last;)
+				{
+					if(iter->second.lock() == timer)
+					{
+						iter = timer_map.erase(iter);
+					}
+					else
+					{
+						++iter;
+					}
+				}
 			});
+		}
+
+		std::size_t remove_task(int taskid)
+		{
+			std::size_t ret = task_count(taskid);
+			std::ranges::for_each(valid_tasks(taskid), std::bind_front(&timer_type::cancel));
+			return ret;
+		}
+
+		std::size_t task_count(int taskid)
+		{
+			return std::ranges::distance(valid_tasks(taskid));
+		}
+
+		bool task_exists(int taskid)
+		{
+			return !std::ranges::empty(valid_tasks(taskid));
+		}
+
+		void RequestFrame(std::function<void()> func)
+		{
+			boost::asio::dispatch(ioc, func);
 		}
 	}
 }

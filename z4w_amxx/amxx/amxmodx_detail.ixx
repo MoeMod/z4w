@@ -7,6 +7,10 @@ import hlsdk.types;
 export namespace amxx {
 	namespace detail {
 		void StartFrame();
-		void set_task(hlsdk::duration_t time, std::function<void()> function, std::function<void(std::error_code)> on_error);
+		void set_task(hlsdk::duration_t time, std::function<void(std::error_code)> function, int taskid);
+		std::size_t remove_task(int taskid);
+		std::size_t task_count(int taskid);
+		bool task_exists(int taskid);
+		void RequestFrame(std::function<void()> func);
 	}
 }
