@@ -7,7 +7,7 @@ export module hlsdk.cbase;
 export import hlsdk.types;
 export import hlsdk.extdll;
 export import hlsdk.util;
-export import hlsdk.cbase_consts;
+export import hlsdk.cbase_const;
 
 export namespace hlsdk {
 	class CBaseEntity;
@@ -20,9 +20,9 @@ export namespace hlsdk {
 
 	class CBaseEntity
 	{
-	public:
+	protected:
 		CBaseEntity() = delete;
-		~CBaseEntity() = delete;
+		~CBaseEntity() = default;
 
 	public:
 		virtual void Spawn(void) {}

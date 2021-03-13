@@ -169,7 +169,12 @@ class CStuckMonitor
 public:
 	CStuckMonitor();
 
-	void Reset();
+	void Reset()
+	{
+		m_isStuck = false;
+		m_avgVelIndex = 0;
+		m_avgVelCount = 0;
+	}
 	void Update(CImprov *improv);
 
 	bool IsStuck() const { return m_isStuck; }

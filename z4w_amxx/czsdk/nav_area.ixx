@@ -186,8 +186,8 @@ private:
 	unsigned int m_marker;
 	unsigned char m_flags;
 
-	static unsigned int m_nextID;
-	static unsigned int m_masterMarker;
+	static inline unsigned int m_nextID = 1;
+	static inline unsigned int m_masterMarker = 0;
 };
 
 typedef std::list<HidingSpot *> HidingSpotList;
@@ -366,7 +366,7 @@ private:
 
 	void Initialize();					// to keep constructors consistent
 	static bool m_isReset;				// if true, don't bother cleaning up in destructor since everything is going away
-	static unsigned int m_nextID;		// used to allocate unique IDs
+	static inline unsigned int m_nextID = 0;		// used to allocate unique IDs
 	unsigned int m_id;					// unique area ID
 	Extent m_extent;					// extents of area in world coords (NOTE: lo.z is not necessarily the minimum Z, but corresponds to Z at point (lo.x, lo.y), etc
 	Vector m_center;					// centroid of area
@@ -403,7 +403,7 @@ private:
 	void Strip();						// remove "analyzed" data from nav area
 
 	// A* pathfinding algorithm
-	static unsigned int m_masterMarker;
+	static inline unsigned int m_masterMarker = 1;
 	unsigned int m_marker;				// used to flag the area as visited
 	CNavArea *m_parent;					// the area just prior to this on in the search path
 	NavTraverseType m_parentHow;		// how we get from parent to us
@@ -432,65 +432,6 @@ private:
 };
 
 extern NavAreaList TheNavAreaList;
-
-inline bool CNavArea::IsDegenerate() const
-{
-	return (m_extent.lo.x >= m_extent.hi.x || m_extent.lo.y >= m_extent.hi.y);
-}
-
-inline CNavArea *CNavArea::GetAdjacentArea(NavDirType dir, int i) const
-{
-	for (auto &con : m_connect[dir])
-	{
-		if (i == 0)
-			return con.area;
-		i--;
-	}
-
-	return nullptr;
-}
-
-inline bool CNavArea::IsOpen() const
-{
-	return (m_openMarker == m_masterMarker) ? true : false;
-}
-
-inline bool CNavArea::IsOpenListEmpty()
-{
-	return m_openList ? false : true;
-}
-
-inline CNavArea *CNavArea::PopOpenList()
-{
-	if (m_openList)
-	{
-		CNavArea *area = m_openList;
-
-		// disconnect from list
-		area->RemoveFromOpenList();
-		return area;
-	}
-
-	return nullptr;
-}
-
-inline bool CNavArea::IsClosed() const
-{
-	if (IsMarked() && !IsOpen())
-		return true;
-
-	return false;
-}
-
-inline void CNavArea::AddToClosedList()
-{
-	Mark();
-}
-
-inline void CNavArea::RemoveFromClosedList()
-{
-	// since "closed" is defined as visited (marked) and not on open list, do nothing
-}
 
 // The CNavAreaGrid is used to efficiently access navigation areas by world position
 // Each cell of the grid contains a list of areas that overlap it
@@ -903,41 +844,7 @@ float NavAreaTravelDistance(const Vector *startPos, CNavArea *startArea, const V
 // TODO: Use ladder connections
 //
 // helper function
-inline void AddAreaToOpenList(CNavArea *area, CNavArea *parent, const Vector *startPos, float maxRange)
-{
-	if (!area)
-		return;
-
-	if (!area->IsMarked())
-	{
-		area->Mark();
-		area->SetTotalCost(0.0f);
-		area->SetParent(parent);
-
-		if (maxRange > 0.0f)
-		{
-			// make sure this area overlaps range
-			Vector closePos;
-			area->GetClosestPointOnArea(startPos, &closePos);
-			if ((closePos - *startPos).Make2D().IsLengthLessThan(maxRange))
-			{
-				// compute approximate distance along path to limit travel range, too
-				float distAlong = parent->GetCostSoFar();
-				distAlong += (*area->GetCenter() - *parent->GetCenter()).Length();
-				area->SetCostSoFar(distAlong);
-
-				// allow for some fudge due to large size areas
-				if (distAlong <= 1.5f * maxRange)
-					area->AddToOpenList();
-			}
-		}
-		else
-		{
-			// infinite range
-			area->AddToOpenList();
-		}
-	}
-}
+void AddAreaToOpenList(CNavArea* area, CNavArea* parent, const Vector* startPos, float maxRange);
 
 template <typename Functor>
 void SearchSurroundingAreas(CNavArea *startArea, const Vector *startPos, Functor &func, float maxRange = -1.0f)

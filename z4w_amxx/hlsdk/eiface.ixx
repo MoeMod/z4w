@@ -4,15 +4,13 @@ module;
 export module hlsdk.eiface;
 import hlsdk.types;
 import hlsdk.consts;
-
-namespace hlsdk {
-	typedef struct edict_s edict_t;
-	typedef struct cvar_s cvar_t;
-	typedef struct customization_s customization_t;
-}
+import hlsdk.edict;
 
 export namespace hlsdk
 {
+	typedef struct cvar_s cvar_t;
+	typedef struct customization_s customization_t;
+	typedef struct edict_s edict_t;
 #ifdef HLDEMO_BUILD
 	constexpr auto INTERFACE_VERSION = 001;
 #else  // !HLDEMO_BUILD, i.e., regular version of HL

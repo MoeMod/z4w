@@ -3,12 +3,9 @@ module;
 export module hlsdk.progdefs;
 import hlsdk.types;
 
-namespace hlsdk {
-	typedef struct edict_s edict_t;
-}
-
 export namespace hlsdk
 {
+	typedef struct edict_s edict_t;
 	typedef struct
 	{
 		time_point_t		time;

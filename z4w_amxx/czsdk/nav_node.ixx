@@ -82,8 +82,8 @@ private:
 	unsigned int m_id;            // unique ID of this node
 	unsigned char m_attributeFlags;        // set of attribute bit flags (see NavAttributeType)
 
-	static CNavNode *m_list;        // the master list of all nodes for this map
-	static unsigned int m_listLength;
+	static inline CNavNode *m_list = nullptr;        // the master list of all nodes for this map
+	static inline unsigned int m_listLength = 0;
 
 	CNavNode *m_next;            // next link in master list
 

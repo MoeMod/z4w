@@ -1028,15 +1028,6 @@ CStuckMonitor::CStuckMonitor()
 	m_avgVelCount = 0;
 }
 
-// Reset the stuck-checker
-
-void CStuckMonitor::Reset()
-{
-	m_isStuck = false;
-	m_avgVelIndex = 0;
-	m_avgVelCount = 0;
-}
-
 // Test if the improv has become stuck
 
 void CStuckMonitor::Update(CImprov *improv)

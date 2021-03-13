@@ -13,9 +13,6 @@ namespace czsdk {
 
 NavDirType Opposite[ NUM_DIRECTIONS ] = { SOUTH, WEST, NORTH, EAST };
 
-CNavNode *CNavNode::m_list = nullptr;
-unsigned int CNavNode::m_listLength = 0;
-
 CNavNode::CNavNode(const Vector *pos, const Vector *normal, CNavNode *parent)
 {
 	m_pos = *pos;

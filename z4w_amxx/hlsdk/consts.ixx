@@ -5,12 +5,9 @@ module;
 export module hlsdk.consts;
 export import hlsdk.types;
 
-namespace hlsdk {
-	typedef struct edict_s edict_t;
-}
-
 export namespace hlsdk
 {
+	typedef struct edict_s edict_t;
 	//
 	// Constants shared by the engine and dlls
 	// This header file included by engine files and DLL files.

@@ -22,11 +22,6 @@ enum { MAX_BLOCKED_AREAS = 256 };
 /*
 * Globals initialization
 */
-unsigned int CNavArea::m_nextID = 1;
-unsigned int CNavArea::m_masterMarker = 1;
-
-unsigned int HidingSpot::m_nextID = 1;
-unsigned int HidingSpot::m_masterMarker = 0;
 
 NavLadderList TheNavLadderList;
 HidingSpotList TheHidingSpotList;
@@ -4902,6 +4897,102 @@ Place CNavAreaGrid::GetPlace(const Vector *pos) const
 	}
 
 	return UNDEFINED_PLACE;
+}
+
+
+void AddAreaToOpenList(CNavArea* area, CNavArea* parent, const Vector* startPos, float maxRange)
+{
+	if (!area)
+		return;
+
+	if (!area->IsMarked())
+	{
+		area->Mark();
+		area->SetTotalCost(0.0f);
+		area->SetParent(parent);
+
+		if (maxRange > 0.0f)
+		{
+			// make sure this area overlaps range
+			Vector closePos;
+			area->GetClosestPointOnArea(startPos, &closePos);
+			if ((closePos - *startPos).Make2D().IsLengthLessThan(maxRange))
+			{
+				// compute approximate distance along path to limit travel range, too
+				float distAlong = parent->GetCostSoFar();
+				distAlong += (*area->GetCenter() - *parent->GetCenter()).Length();
+				area->SetCostSoFar(distAlong);
+
+				// allow for some fudge due to large size areas
+				if (distAlong <= 1.5f * maxRange)
+					area->AddToOpenList();
+			}
+		}
+		else
+		{
+			// infinite range
+			area->AddToOpenList();
+		}
+	}
+}
+
+inline bool CNavArea::IsDegenerate() const
+{
+	return (m_extent.lo.x >= m_extent.hi.x || m_extent.lo.y >= m_extent.hi.y);
+}
+
+inline CNavArea* CNavArea::GetAdjacentArea(NavDirType dir, int i) const
+{
+	for (auto& con : m_connect[dir])
+	{
+		if (i == 0)
+			return con.area;
+		i--;
+	}
+
+	return nullptr;
+}
+
+bool CNavArea::IsOpen() const
+{
+	return (m_openMarker == m_masterMarker) ? true : false;
+}
+
+bool CNavArea::IsOpenListEmpty()
+{
+	return m_openList ? false : true;
+}
+
+CNavArea* CNavArea::PopOpenList()
+{
+	if (m_openList)
+	{
+		CNavArea* area = m_openList;
+
+		// disconnect from list
+		area->RemoveFromOpenList();
+		return area;
+	}
+
+	return nullptr;
+}
+
+bool CNavArea::IsClosed() const
+{
+	if (IsMarked() && !IsOpen())
+		return true;
+
+	return false;
+}
+
+void CNavArea::AddToClosedList()
+{
+	Mark();
+}
+
+void CNavArea::RemoveFromClosedList()
+{
+	// since "closed" is defined as visited (marked) and not on open list, do nothing
 }
 
 }

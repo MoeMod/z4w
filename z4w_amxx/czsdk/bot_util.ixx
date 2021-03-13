@@ -36,7 +36,7 @@ export import hlsdk.util;
 export import hlsdk.cbase;
 export import hlsdk.cvardef;
 import hlsdk.enginecallback;
-import cssdk.player_consts;
+import cssdk.player_const;
 
 using namespace hlsdk;
 using namespace cssdk;
