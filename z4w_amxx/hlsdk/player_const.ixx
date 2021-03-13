@@ -1,13 +1,12 @@
 module;
 #include <chrono>
 
-export module cssdk.player_const;
+export module hlsdk.player_const;
 export import hlsdk.types;
 
 using namespace std::chrono_literals;
 
-export namespace cssdk {
-	using namespace hlsdk;
+export namespace hlsdk {
 
 	typedef enum
 	{

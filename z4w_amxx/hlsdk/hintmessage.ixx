@@ -1,11 +1,9 @@
 
-export module cssdk.hintmessage;
+export module hlsdk.hintmessage;
 export import hlsdk.cbase;
 export import hlsdk.utlvector;
 
-export namespace cssdk {
-
-	using namespace hlsdk;
+export namespace hlsdk {
 
 	class CHintMessage
 	{

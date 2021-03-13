@@ -36,10 +36,9 @@ export import hlsdk.util;
 export import hlsdk.cbase;
 export import hlsdk.cvardef;
 import hlsdk.enginecallback;
-import cssdk.player_const;
+import hlsdk.player_const;
 
 using namespace hlsdk;
-using namespace cssdk;
 
 #define COS_TABLE_SIZE		256
 

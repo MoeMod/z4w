@@ -1,6 +1,6 @@
-export module cssdk.cdll_dll;
+export module hlsdk.cdll_dll;
 
-export namespace cssdk {
+export namespace hlsdk {
 
 	constexpr auto MAX_CLIENTS = 32;
 	constexpr auto MAX_WEAPONS = 32;

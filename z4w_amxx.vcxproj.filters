@@ -19,9 +19,6 @@
     <Filter Include="czsdk">
       <UniqueIdentifier>{4cb6e4d3-d866-451d-b318-408d9ef546eb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="cssdk">
-      <UniqueIdentifier>{0105cecd-cf59-4495-8549-03ae121a05d3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="metahook">
       <UniqueIdentifier>{2eca8686-38df-430f-907f-a438b3b3318b}</UniqueIdentifier>
     </Filter>
@@ -172,9 +169,6 @@
     <ClCompile Include="z4w_amxx\czsdk\bot_util.ixx">
       <Filter>czsdk</Filter>
     </ClCompile>
-    <ClCompile Include="z4w_amxx\cssdk\player_const.ixx">
-      <Filter>cssdk</Filter>
-    </ClCompile>
     <ClCompile Include="z4w_amxx\metahook\metahook.ixx">
       <Filter>metahook</Filter>
     </ClCompile>
@@ -188,26 +182,11 @@
     <ClCompile Include="z4w_amxx\hlsdk\ehandle.ixx">
       <Filter>hlsdk</Filter>
     </ClCompile>
-    <ClCompile Include="z4w_amxx\cssdk\player.ixx">
-      <Filter>cssdk</Filter>
-    </ClCompile>
     <ClCompile Include="z4w_amxx\hlsdk\basemonster.ixx">
       <Filter>hlsdk</Filter>
     </ClCompile>
     <ClCompile Include="z4w_amxx\hlsdk\activity.ixx">
       <Filter>hlsdk</Filter>
-    </ClCompile>
-    <ClCompile Include="z4w_amxx\cssdk\weapons_buy.ixx">
-      <Filter>cssdk</Filter>
-    </ClCompile>
-    <ClCompile Include="z4w_amxx\cssdk\weapons_const.ixx">
-      <Filter>cssdk</Filter>
-    </ClCompile>
-    <ClCompile Include="z4w_amxx\cssdk\cdll_dll.ixx">
-      <Filter>cssdk</Filter>
-    </ClCompile>
-    <ClCompile Include="z4w_amxx\cssdk\hintmessage.ixx">
-      <Filter>cssdk</Filter>
     </ClCompile>
     <ClCompile Include="z4w_amxx\hlsdk\utlvector.ixx">
       <Filter>hlsdk</Filter>
@@ -217,9 +196,6 @@
     </ClCompile>
     <ClCompile Include="z4w_amxx\hlsdk\pm_materials.ixx">
       <Filter>hlsdk</Filter>
-    </ClCompile>
-    <ClCompile Include="z4w_amxx\cssdk\player_signal.ixx">
-      <Filter>cssdk</Filter>
     </ClCompile>
     <ClCompile Include="z4w_amxx\czsdk\nav_path.ixx">
       <Filter>czsdk</Filter>
@@ -232,6 +208,27 @@
     </ClCompile>
     <ClCompile Include="z4w_amxx\czsdk\nav_node.ixx">
       <Filter>czsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\hlsdk\cdll_dll.ixx">
+      <Filter>hlsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\hlsdk\hintmessage.ixx">
+      <Filter>hlsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\hlsdk\player_const.ixx">
+      <Filter>hlsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\hlsdk\player_signal.ixx">
+      <Filter>hlsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\hlsdk\player.ixx">
+      <Filter>hlsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\hlsdk\weapons_buy.ixx">
+      <Filter>hlsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\hlsdk\weapons_const.ixx">
+      <Filter>hlsdk</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

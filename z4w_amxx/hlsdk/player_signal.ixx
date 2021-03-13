@@ -1,7 +1,7 @@
 
-export module cssdk.player_signal;
+export module hlsdk.player_signal;
 
-export namespace cssdk {
+export namespace hlsdk {
 
 	constexpr auto SIGNAL_BUY = (1 << 0);
 	constexpr auto SIGNAL_BOMB = (1 << 1);

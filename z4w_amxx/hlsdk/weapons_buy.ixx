@@ -26,10 +26,10 @@
 *
 */
 
-export module cssdk.weapons_buy;
-export import cssdk.weapons_const;
+export module hlsdk.weapons_buy;
+export import hlsdk.weapons_const;
 
-export namespace cssdk {
+export namespace hlsdk {
 
 enum AutoBuyClassType
 {

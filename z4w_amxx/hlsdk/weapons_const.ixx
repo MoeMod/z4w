@@ -1,7 +1,7 @@
 
-export module cssdk.weapons_const;
+export module hlsdk.weapons_const;
 
-export namespace cssdk {
+export namespace hlsdk {
 
 	enum WeaponIdType
 	{

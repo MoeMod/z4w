@@ -2,19 +2,18 @@ module;
 
 #include <chrono>
 
-export module cssdk.player;
+export module hlsdk.player;
 export import hlsdk.basemonster;
 export import hlsdk.pm_materials;
-export import cssdk.player_const;
-export import cssdk.weapons_buy;
-export import cssdk.cdll_dll;
-export import cssdk.hintmessage;
-export import cssdk.player_signal;
+export import hlsdk.player_const;
+export import hlsdk.weapons_buy;
+export import hlsdk.cdll_dll;
+export import hlsdk.hintmessage;
+export import hlsdk.player_signal;
 
 using namespace std::chrono_literals;
 
-export namespace cssdk {
-	using namespace hlsdk;
+export namespace hlsdk {
 
 	class CWeaponBox;
 	class CBasePlayerWeapon;
