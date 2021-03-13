@@ -12,6 +12,9 @@ export namespace metahook {
 
 	typedef struct hook_s hook_t;
 
+	class IBaseInterface;
+	typedef IBaseInterface* (*CreateInterfaceFn)(const char* pName, int* pReturnCode);
+
 	typedef struct metahook_api_s
 	{
 		BOOL(*UnHook)(hook_t* pHook);
@@ -21,17 +24,17 @@ export namespace metahook {
 		void* (*GetClassFuncAddr)(...);
 		DWORD(*GetModuleBase)(HMODULE hModule);
 		DWORD(*GetModuleSize)(HMODULE hModule);
-		/*HMODULE (*GetEngineModule)(void);
+		HMODULE (*GetEngineModule)(void);
 		DWORD (*GetEngineBase)(void);
-		DWORD (*GetEngineSize)(void);*/
-		void* (*SearchPattern)(void* pStartSearch, DWORD dwSearchLen, char* pPattern, DWORD dwPatternLen);
+		DWORD (*GetEngineSize)(void);
+		void* (*SearchPattern)(void* pStartSearch, DWORD dwSearchLen, const char* pPattern, DWORD dwPatternLen);
 		void (*WriteDWORD)(void* pAddress, DWORD dwValue);
 		DWORD(*ReadDWORD)(void* pAddress);
 		DWORD(*WriteMemory)(void* pAddress, BYTE* pData, DWORD dwDataSize);
 		DWORD(*ReadMemory)(void* pAddress, BYTE* pData, DWORD dwDataSize);
-		/*DWORD (*GetVideoMode)(int *width, int *height, int *bpp, bool *windowed);
+		[[deprecated]] DWORD (*GetVideoMode)(int *width, int *height, int *bpp, bool *windowed);
 		DWORD (*GetEngineBuildnum)(void);
-		CreateInterfaceFn (*GetEngineFactory)(void);*/
+		[[deprecated]] CreateInterfaceFn (*GetEngineFactory)(void);
 		DWORD(*GetNextCallAddr)(void* pAddress, DWORD dwCount);
 		void (*WriteBYTE)(void* pAddress, BYTE ucValue);
 		BYTE(*ReadBYTE)(void* pAddress);
@@ -69,7 +72,7 @@ namespace metahook {
 	void* MH_GetClassFuncAddr(...);
 	DWORD MH_GetModuleBase(HMODULE hModule);
 	DWORD MH_GetModuleSize(HMODULE hModule);
-	void* MH_SearchPattern(void* pStartSearch, DWORD dwSearchLen, char* pPattern, DWORD dwPatternLen);
+	void* MH_SearchPattern(void* pStartSearch, DWORD dwSearchLen, const char* pPattern, DWORD dwPatternLen);
 	void MH_WriteDWORD(void* pAddress, DWORD dwValue);
 	DWORD MH_ReadDWORD(void* pAddress);
 	void MH_WriteBYTE(void* pAddress, BYTE ucValue);
@@ -304,7 +307,7 @@ namespace metahook {
 		return ((IMAGE_NT_HEADERS*)((DWORD)hModule + ((IMAGE_DOS_HEADER*)hModule)->e_lfanew))->OptionalHeader.SizeOfImage;
 	}
 
-	void* MH_SearchPattern(void* pStartSearch, DWORD dwSearchLen, char* pPattern, DWORD dwPatternLen)
+	void* MH_SearchPattern(void* pStartSearch, DWORD dwSearchLen, const char* pPattern, DWORD dwPatternLen)
 	{
 		DWORD dwStartAddr = (DWORD)pStartSearch;
 		DWORD dwEndAddr = dwStartAddr + dwSearchLen - dwPatternLen;
@@ -451,6 +454,89 @@ namespace metahook {
 		return 0;
 	}
 
+	struct EngineInfo 
+	{
+		HMODULE hEngineModule;
+		DWORD dwEngineBase;
+		DWORD dwEngineSize;
+		DWORD dwEngineBuildnum;
+		DWORD dwDataSize;
+		BOOL bEngineIsBlob;
+		int (*pfnbuild_number)(void);
+		bool bIsNewEngine;
+	};
+
+#define BUILD_NUMBER_SIG "\xA1\x2A\x2A\x2A\x2A\x83\xEC\x08\x2A\x33\x2A\x85\xC0"
+#define BUILD_NUMBER_SIG_NEW "\x55\x8B\xEC\x83\xEC\x08\xA1\x2A\x2A\x2A\x2A\x56\x33\xF6\x85\xC0\x0F\x85\x2A\x2A\x2A\x2A\x53\x33\xDB\x8B\x04\x9D"
+
+	EngineInfo MH_GetEngineInfoReal()
+	{
+		EngineInfo info;
+		info.hEngineModule = GetModuleHandle("swds.dll");
+		if (!info.hEngineModule || info.hEngineModule == INVALID_HANDLE_VALUE)
+		{
+			info.hEngineModule = GetModuleHandle("hw.dll");
+		}
+		if (!info.hEngineModule || info.hEngineModule == INVALID_HANDLE_VALUE)
+		{
+			info.hEngineModule = GetModuleHandle("sw.dll");
+		}
+		if (!info.hEngineModule || info.hEngineModule == INVALID_HANDLE_VALUE)
+		{
+			info.dwEngineBase = 0x1D01000;
+			info.dwEngineSize = 0x1000000;
+			info.bEngineIsBlob = TRUE;
+		}
+		else
+		{
+			info.dwEngineBase = MH_GetModuleBase(info.hEngineModule);
+			info.dwEngineSize = MH_GetModuleSize(info.hEngineModule);
+			info.bEngineIsBlob = FALSE;
+		}
+
+		info.bIsNewEngine = false;
+		info.pfnbuild_number = (int (*)(void))MH_SearchPattern((void*)info.dwEngineBase, info.dwEngineSize, BUILD_NUMBER_SIG, sizeof(BUILD_NUMBER_SIG) - 1);
+
+		if (!info.pfnbuild_number)
+		{
+			info.pfnbuild_number = (int (*)(void))MH_SearchPattern((void*)info.dwEngineBase, info.dwEngineSize, BUILD_NUMBER_SIG_NEW, sizeof(BUILD_NUMBER_SIG_NEW) - 1);
+			info.bIsNewEngine = true;
+		}
+		return info;
+	}
+
+	EngineInfo MH_GetEngineInfo()
+	{
+		static const EngineInfo x = MH_GetEngineInfoReal();
+		return x;
+	}
+
+	HMODULE MH_GetEngineModule()
+	{
+		return MH_GetEngineInfo().hEngineModule;
+	}
+
+	DWORD MH_GetEngineBase()
+	{
+		return MH_GetEngineInfo().dwEngineBase;
+	}
+
+	DWORD MH_GetEngineSize()
+	{
+		return MH_GetEngineInfo().dwEngineSize;
+	}
+	
+	DWORD MH_GetEngineVersion(void)
+	{
+		auto pfn = MH_GetEngineInfo().pfnbuild_number;
+		return pfn ? pfn() : 0;
+	}
+
+	void* g_dwEngineBase = 0;
+	DWORD g_dwEngineSize = 0;
+	DWORD g_dwEngineBuildnum = 0;
+	DWORD g_dwDataSize = 0x02FFFFFF - 0x01D00000;
+
 	metahook_api_t gMetaHookAPI =
 	{
 		MH_UnHook,
@@ -460,17 +546,17 @@ namespace metahook {
 		MH_GetClassFuncAddr,
 		MH_GetModuleBase,
 		MH_GetModuleSize,
-		/*MH_GetEngineModule,
+		MH_GetEngineModule,
 		MH_GetEngineBase,
-		MH_GetEngineSize,*/
+		MH_GetEngineSize,
 		MH_SearchPattern,
 		MH_WriteDWORD,
 		MH_ReadDWORD,
 		MH_WriteMemory,
 		MH_ReadMemory,
-		/*MH_GetVideoMode,
+		nullptr,
 		MH_GetEngineVersion,
-		MH_GetEngineFactory,*/
+		nullptr,
 		MH_GetNextCallAddr,
 		MH_WriteBYTE,
 		MH_ReadBYTE,

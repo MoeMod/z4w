@@ -17,21 +17,10 @@ export namespace x_hook {
 
 	void plugin_init()
 	{
-		g_hEngine = GetModuleHandle("swds.dll");
-		if (!g_hEngine || g_hEngine == INVALID_HANDLE_VALUE)
-		{
-			g_hEngine = GetModuleHandle("hw.dll");
-		}
-		if (!g_hEngine || g_hEngine == INVALID_HANDLE_VALUE)
-		{
-			g_dwEngineBase = reinterpret_cast<void*>(0x1D01000);
-			g_dwEngineSize = 0x1000000;
-		}
-		else
-		{
-			g_dwEngineBase = reinterpret_cast<void*>(g_pMetaHookAPI->GetModuleBase(g_hEngine));
-			g_dwEngineSize = g_pMetaHookAPI->GetModuleSize(g_hEngine);
-		}
+		g_hEngine = g_pMetaHookAPI->GetEngineModule();
+		g_dwEngineBase = reinterpret_cast<void*>(g_pMetaHookAPI->GetEngineBase());
+		g_dwEngineSize = g_pMetaHookAPI->GetEngineSize();
+		g_dwEngineSize = g_pMetaHookAPI->GetEngineBuildnum();
 	}
 
 	void PatchEngineSolid()
