@@ -15,17 +15,21 @@ export namespace x_hook {
 	DWORD g_dwEngineBuildnum = 0;
 	DWORD g_dwDataSize = 0x02FFFFFF - 0x01D00000;
 
+	void PatchEngineSolid();
+
 	void plugin_init()
 	{
 		g_hEngine = g_pMetaHookAPI->GetEngineModule();
 		g_dwEngineBase = reinterpret_cast<void*>(g_pMetaHookAPI->GetEngineBase());
 		g_dwEngineSize = g_pMetaHookAPI->GetEngineSize();
 		g_dwEngineSize = g_pMetaHookAPI->GetEngineBuildnum();
+
+		PatchEngineSolid();
 	}
 
 	void PatchEngineSolid()
 	{
-		constexpr char ANY = 0xFF;
+		constexpr char ANY = 0x2A;
 		constexpr char END = '\0';
 		// SV_ClipToLinks
 		// if (touch->v.solid != SOLID_SLIDEBOX)
@@ -42,10 +46,10 @@ export namespace x_hook {
 		// SOLID_SLIDEBOX(3) -> SOLID_TRIGGER(1)
 #ifdef _WIN32
 		// 83 F9 03                                      cmp     ecx, 3
-		* (reinterpret_cast<char*>(pEngineSolidCheck) + 2) = SOLID_TRIGGER;
+		g_pMetaHookAPI->WriteBYTE(reinterpret_cast<char*>(pEngineSolidCheck) + 2, SOLID_TRIGGER);
 #elif __linux__
 		// 83 F8 03                                      cmp     eax, 3
-		* (reinterpret_cast<char*>(pEngineSolidCheck) + 2) = SOLID_TRIGGER;
+		g_pMetaHookAPI->WriteBYTE(reinterpret_cast<char*>(pEngineSolidCheck) + 2, SOLID_TRIGGER);
 #endif
 	}
 
