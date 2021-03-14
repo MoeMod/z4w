@@ -5,7 +5,6 @@ module;
 #include <system_error>
 export module amxx.amxmodx_timer;
 import amxx.amxmodx_detail;
-import amxx.coroutine;
 import hlsdk.engine;
 
 using namespace hlsdk;
@@ -61,8 +60,19 @@ export namespace amxx {
 		return detail::RequestFrame(func);
 	}
 
-	auto RequestFrame()
+	struct frame_awaitable
 	{
-		return co_create_awaitable([](auto func) { RequestFrame(func); });
+		bool await_ready() noexcept {
+			return false;
+		}
+		void await_suspend(std::coroutine_handle<> h) {
+			RequestFrame(std::bind(&std::coroutine_handle<>::resume, h));
+		}
+		void await_resume() noexcept {}
+	};
+
+	frame_awaitable RequestFrame()
+	{
+		return {};
 	}
 }

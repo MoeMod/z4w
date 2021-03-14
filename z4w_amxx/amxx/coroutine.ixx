@@ -10,16 +10,14 @@ export import hlsdk.engine;
 using namespace hlsdk;
 export namespace amxx {
 	namespace coroutine {
-		using std::coroutine_handle;
-
 		template<class Fn = void(*)(void(*)())>
 		struct AwaitableResult
 		{
 			bool await_ready() noexcept {
 				return false;
 			}
-			void await_suspend(coroutine_handle<> h) {
-				std::invoke(m_callback, std::bind(&coroutine_handle<>::resume, h));
+			void await_suspend(std::coroutine_handle<> h) {
+				std::invoke(m_callback, std::bind(&std::coroutine_handle<>::resume, h));
 			}
 			void await_resume() noexcept {}
 

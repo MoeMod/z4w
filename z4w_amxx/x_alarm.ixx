@@ -1,10 +1,10 @@
 module;
 
 #include <string>
-#include <functional>
 #include <chrono>
 #include <array>
 #include <list>
+#include <functional>
 
 export module x_alarm;
 export import hlsdk.engine;
@@ -234,6 +234,6 @@ export namespace x_alarm {
         g_ClientData = {};
         g_TimerTipInfo = {};
         g_bHasFirstBlood = false;
-        set_task(15s, CheckAlarmTask);
+        RequestFrame(CheckAlarmTask);
     }
 }
