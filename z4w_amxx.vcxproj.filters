@@ -239,6 +239,9 @@
     <ClCompile Include="z4w_amxx\hlsdk\vector.ixx">
       <Filter>hlsdk</Filter>
     </ClCompile>
+    <ClCompile Include="z4w_amxx\amxx\ranges.ixx">
+      <Filter>amxx</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="z4w_amxx\sdk\amxxmodule.h">

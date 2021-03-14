@@ -29,6 +29,7 @@
     <ClCompile Include="z4w_amxx\amxx\coroutine.ixx" />
     <ClCompile Include="z4w_amxx\amxx\hudmessage.ixx" />
     <ClCompile Include="z4w_amxx\amxx\messages.ixx" />
+    <ClCompile Include="z4w_amxx\amxx\ranges.ixx" />
     <ClCompile Include="z4w_amxx\czsdk\bot_util.ixx" />
     <ClCompile Include="z4w_amxx\czsdk\GameEvent.ixx" />
     <ClCompile Include="z4w_amxx\czsdk\improv.ixx" />

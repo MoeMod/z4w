@@ -112,4 +112,9 @@ export namespace amxx {
 	{
 		return GET_USER_MSG_ID(PLID, name, NULL);
 	}
+
+	int get_maxplayers()
+	{
+		return gpGlobals->maxClients;
+	}
 }
