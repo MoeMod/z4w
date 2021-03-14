@@ -26,9 +26,6 @@ export namespace amxx {
             template<class T> concept CBaseEntitySubClass_c = CBaseEntityClass_c<T> && !std::same_as<T, CBaseEntity>;
 
             template<CBaseEntitySubClass_c To, CBaseEntityClass_c From>
-                requires std::derived_from<To, From>
-            To* CBaseDownCast(From*) = delete;
-            template<CBaseEntitySubClass_c To, CBaseEntityClass_c From>
                 requires std::derived_from<To, From> && std::derived_from<To, CBasePlayer>
             To* CBaseDownCast(From *pEntity)
             {
