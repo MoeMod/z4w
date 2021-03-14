@@ -39,7 +39,7 @@
 
 #include "types_meta.h"		// mBOOL
 
-import hlsdk.cvardef;
+import hlsdk.engine;
 using hlsdk::cvar_t;
 
 // Number of entries to add to reglists when they need to grow.  Typically

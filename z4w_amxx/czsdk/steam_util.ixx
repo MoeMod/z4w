@@ -27,7 +27,7 @@
 */
 
 export module czsdk.steam_util;
-export import hlsdk.types;
+import hlsdk.engine;
 import hlsdk.enginecallback;
 
 using namespace hlsdk;

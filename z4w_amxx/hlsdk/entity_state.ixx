@@ -1,10 +1,9 @@
 module;
 
 export module hlsdk.entity_state;
-import hlsdk.types;
-import hlsdk.consts;
-import hlsdk.pm_info;
-import hlsdk.weaponinfo;
+export import hlsdk.engine;
+export import hlsdk.pm_info;
+export import hlsdk.weaponinfo;
 
 export namespace hlsdk
 {

@@ -1,13 +1,11 @@
 module;
 
-//#include "const.h"
-
-export module hlsdk.consts;
-export import hlsdk.types;
+export module hlsdk.engine:consts;
+import :fwd;
+import :types;
 
 export namespace hlsdk
 {
-	typedef struct edict_s edict_t;
 	//
 	// Constants shared by the engine and dlls
 	// This header file included by engine files and DLL files.
@@ -753,7 +751,7 @@ export namespace hlsdk
 		float	fraction;		// time completed, 1.0 = didn't hit anything
 		vec3_t	endpos;		// final position
 		plane_t	plane;		// surface normal at impact
-		edict_t* ent;		// entity the surface is on
+		edict_s* ent;		// entity the surface is on
 		int	hitgroup;		// 0 == generic, non zero is specific body part
 	} trace_t;
 }

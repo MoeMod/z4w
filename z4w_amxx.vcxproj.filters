@@ -173,16 +173,10 @@
       <Filter>metahook</Filter>
     </ClCompile>
     <ClCompile Include="z4w_amxx\x_hook.ixx" />
-    <ClCompile Include="z4w_amxx\hlsdk\cbase_ext.ixx">
-      <Filter>hlsdk</Filter>
-    </ClCompile>
     <ClCompile Include="z4w_amxx\hlsdk\monsterevent.ixx">
       <Filter>hlsdk</Filter>
     </ClCompile>
     <ClCompile Include="z4w_amxx\hlsdk\ehandle.ixx">
-      <Filter>hlsdk</Filter>
-    </ClCompile>
-    <ClCompile Include="z4w_amxx\hlsdk\basemonster.ixx">
       <Filter>hlsdk</Filter>
     </ClCompile>
     <ClCompile Include="z4w_amxx\hlsdk\activity.ixx">
@@ -228,6 +222,21 @@
       <Filter>hlsdk</Filter>
     </ClCompile>
     <ClCompile Include="z4w_amxx\hlsdk\weapons_const.ixx">
+      <Filter>hlsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\hlsdk\cbase_ent.ixx">
+      <Filter>hlsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\hlsdk\cbase_fwd.ixx">
+      <Filter>hlsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\hlsdk\engine.ixx">
+      <Filter>hlsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\hlsdk\engine_fwd.ixx">
+      <Filter>hlsdk</Filter>
+    </ClCompile>
+    <ClCompile Include="z4w_amxx\hlsdk\vector.ixx">
       <Filter>hlsdk</Filter>
     </ClCompile>
   </ItemGroup>

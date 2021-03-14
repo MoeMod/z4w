@@ -1,11 +1,11 @@
 module;
 
-export module hlsdk.progdefs;
-import hlsdk.types;
+export module hlsdk.engine:progdefs;
+import :fwd;
+import :types;
 
 export namespace hlsdk
 {
-	typedef struct edict_s edict_t;
 	typedef struct
 	{
 		time_point_t		time;
@@ -27,7 +27,7 @@ export namespace hlsdk
 		vec3_t		trace_endpos;
 		vec3_t		trace_plane_normal;
 		float		trace_plane_dist;
-		edict_t* trace_ent;
+		edict_s* trace_ent;
 		float		trace_inopen;
 		float		trace_inwater;
 		int		trace_hitgroup;
@@ -123,12 +123,12 @@ export namespace hlsdk
 		int		button;
 		int		impulse;
 
-		edict_t* chain;		// Entity pointer when linked into a linked list
-		edict_t* dmg_inflictor;
-		edict_t* enemy;
-		edict_t* aiment;		// entity pointer when MOVETYPE_FOLLOW
-		edict_t* owner;
-		edict_t* groundentity;
+		edict_s* chain;		// Entity pointer when linked into a linked list
+		edict_s* dmg_inflictor;
+		edict_s* enemy;
+		edict_s* aiment;		// entity pointer when MOVETYPE_FOLLOW
+		edict_s* owner;
+		edict_s* groundentity;
 
 		int		spawnflags;
 		int		flags;
@@ -163,7 +163,7 @@ export namespace hlsdk
 		time_point_t		pain_finished;
 		time_point_t		radsuit_finished;
 
-		edict_t* pContainingEntity;
+		edict_s* pContainingEntity;
 
 		int		playerclass;
 		float		maxspeed;
@@ -199,9 +199,9 @@ export namespace hlsdk
 		vec3_t		vuser2;
 		vec3_t		vuser3;
 		vec3_t		vuser4;
-		edict_t* euser1;
-		edict_t* euser2;
-		edict_t* euser3;
-		edict_t* euser4;
+		edict_s* euser1;
+		edict_s* euser2;
+		edict_s* euser3;
+		edict_s* euser4;
 	} entvars_t;
 }

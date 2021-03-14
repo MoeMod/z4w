@@ -573,7 +573,7 @@ void FN_SetupVisibility(edict_t *pViewEntity, edict_t *pClient, unsigned char **
 #endif // FN_SetupVisibility
 
 #ifdef FN_UpdateClientData
-void FN_UpdateClientData(const struct edict_s *ent, int sendweapons, struct clientdata_s *cd);
+void FN_UpdateClientData(const edict_t *ent, int sendweapons, struct clientdata_s *cd);
 #endif // FN_UpdateClientData
 
 #ifdef FN_AddToFullPack
@@ -581,7 +581,7 @@ int FN_AddToFullPack(struct entity_state_s *state, int e, edict_t *ent, edict_t 
 #endif // FN_AddToFullPack
 
 #ifdef FN_CreateBaseline
-void FN_CreateBaseline(int player, int eindex, struct entity_state_s *baseline, struct edict_s *entity, int playermodelindex, vec3_t player_mins, vec3_t player_maxs);
+void FN_CreateBaseline(int player, int eindex, struct entity_state_s *baseline, edict_t *entity, int playermodelindex, vec3_t player_mins, vec3_t player_maxs);
 #endif // FN_CreateBaseline
 
 #ifdef FN_RegisterEncoders
@@ -589,7 +589,7 @@ void FN_RegisterEncoders(void);
 #endif // FN_RegisterEncoders
 
 #ifdef FN_GetWeaponData
-int FN_GetWeaponData(struct edict_s *player, struct weapon_data_s *info);
+int FN_GetWeaponData(edict_t *player, struct weapon_data_s *info);
 #endif // FN_GetWeaponData
 
 #ifdef FN_CmdStart
@@ -776,7 +776,7 @@ void FN_SetupVisibility_Post(edict_t *pViewEntity, edict_t *pClient, unsigned ch
 #endif // FN_SetupVisibility_Post
 
 #ifdef FN_UpdateClientData_Post
-void FN_UpdateClientData_Post(const struct edict_s *ent, int sendweapons, struct clientdata_s *cd);
+void FN_UpdateClientData_Post(const edict_t *ent, int sendweapons, struct clientdata_s *cd);
 #endif // FN_UpdateClientData_Post
 
 #ifdef FN_AddToFullPack_Post
@@ -784,7 +784,7 @@ int FN_AddToFullPack_Post(struct entity_state_s *state, int e, edict_t *ent, edi
 #endif // FN_AddToFullPack_Post
 
 #ifdef FN_CreateBaseline_Post
-void FN_CreateBaseline_Post(int player, int eindex, struct entity_state_s *baseline, struct edict_s *entity, int playermodelindex, vec3_t player_mins, vec3_t player_maxs);
+void FN_CreateBaseline_Post(int player, int eindex, struct entity_state_s *baseline, edict_t *entity, int playermodelindex, vec3_t player_mins, vec3_t player_maxs);
 #endif // FN_CreateBaseline_Post
 
 #ifdef FN_RegisterEncoders_Post
@@ -792,7 +792,7 @@ void FN_RegisterEncoders_Post(void);
 #endif // FN_RegisterEncoders_Post
 
 #ifdef FN_GetWeaponData_Post
-int FN_GetWeaponData_Post(struct edict_s *player, struct weapon_data_s *info);
+int FN_GetWeaponData_Post(edict_t *player, struct weapon_data_s *info);
 #endif // FN_GetWeaponData_Post
 
 #ifdef FN_CmdStart_Post
@@ -1098,7 +1098,7 @@ int FN_AllocString(const char *szValue);
 #endif // FN_AllocString
 
 #ifdef FN_GetVarsOfEnt
-struct entvars_s *FN_GetVarsOfEnt(edict_t *pEdict);
+entvars_t *FN_GetVarsOfEnt(edict_t *pEdict);
 #endif // FN_GetVarsOfEnt
 
 #ifdef FN_PEntityOfEntOffset
@@ -1118,7 +1118,7 @@ edict_t *FN_PEntityOfEntIndex(int iEntIndex);
 #endif // FN_PEntityOfEntIndex
 
 #ifdef FN_FindEntityByVars
-edict_t *FN_FindEntityByVars(struct entvars_s *pvars);
+edict_t *FN_FindEntityByVars(entvars_t *pvars);
 #endif // FN_FindEntityByVars
 
 #ifdef FN_GetModelPtr
@@ -1374,7 +1374,7 @@ int FN_engCreateInstancedBaseline(int classname, struct entity_state_s *baseline
 #endif // FN_engCreateInstancedBaseline
 
 #ifdef FN_Cvar_DirectSet
-void FN_Cvar_DirectSet(struct cvar_s *var, char *value);
+void FN_Cvar_DirectSet(cvar_t *var, char *value);
 #endif // FN_Cvar_DirectSet
 
 #ifdef FN_ForceUnmodified
@@ -1679,7 +1679,7 @@ int FN_AllocString_Post(const char *szValue);
 #endif // FN_AllocString_Post
 
 #ifdef FN_GetVarsOfEnt_Post
-struct entvars_s *FN_GetVarsOfEnt_Post(edict_t *pEdict);
+entvars_t *FN_GetVarsOfEnt_Post(edict_t *pEdict);
 #endif // FN_GetVarsOfEnt_Post
 
 #ifdef FN_PEntityOfEntOffset_Post
@@ -1699,7 +1699,7 @@ edict_t *FN_PEntityOfEntIndex_Post(int iEntIndex);
 #endif // FN_PEntityOfEntIndex_Post
 
 #ifdef FN_FindEntityByVars_Post
-edict_t *FN_FindEntityByVars_Post(struct entvars_s *pvars);
+edict_t *FN_FindEntityByVars_Post(entvars_t *pvars);
 #endif // FN_FindEntityByVars_Post
 
 #ifdef FN_GetModelPtr_Post
@@ -1955,7 +1955,7 @@ int FN_engCreateInstancedBaseline_Post(int classname, struct entity_state_s *bas
 #endif // FN_engCreateInstancedBaseline_Post
 
 #ifdef FN_Cvar_DirectSet_Post
-void FN_Cvar_DirectSet_Post(struct cvar_s *var, char *value);
+void FN_Cvar_DirectSet_Post(cvar_t *var, char *value);
 #endif // FN_Cvar_DirectSet_Post
 
 #ifdef FN_ForceUnmodified_Post

@@ -39,9 +39,7 @@
 
 #include "osdep.h"
 
-import hlsdk.eiface;
-import hlsdk.edict;
-import hlsdk.custom;
+import hlsdk.engine;
 using namespace hlsdk;
 
 // Typedefs for these are provided in SDK engine/eiface.h, but I didn't

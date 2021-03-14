@@ -6,7 +6,7 @@ module;
 export module amxx.amxmodx_timer;
 import amxx.amxmodx_detail;
 import amxx.coroutine;
-import hlsdk.types;
+import hlsdk.engine;
 
 using namespace hlsdk;
 export namespace amxx {

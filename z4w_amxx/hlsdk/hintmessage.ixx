@@ -1,6 +1,7 @@
 
-export module hlsdk.hintmessage;
-export import hlsdk.cbase;
+export module hlsdk.cbase:hintmessage;
+export import hlsdk.extdll;
+export import :fwd;
 export import hlsdk.utlvector;
 
 export namespace hlsdk {

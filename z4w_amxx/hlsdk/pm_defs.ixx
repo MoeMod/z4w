@@ -2,9 +2,8 @@
 
 export module hlsdk.pm_defs;
 
-import hlsdk.types;
+import hlsdk.engine;
 import hlsdk.usercmd;
-import hlsdk.consts;
 import hlsdk.pmtrace;
 import hlsdk.pm_info;
 

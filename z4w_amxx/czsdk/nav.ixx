@@ -30,7 +30,6 @@ module;
 #include <cmath>
 
 export module czsdk.nav;
-export import hlsdk.types;
 export import hlsdk.extdll;
 export import hlsdk.util;
 export import hlsdk.cbase;

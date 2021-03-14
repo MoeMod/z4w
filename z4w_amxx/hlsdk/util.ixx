@@ -8,7 +8,6 @@ module;
 export module hlsdk.util;
 
 export import hlsdk.extdll;
-export import hlsdk.cvardef;
 export import hlsdk.enginecallback;
 export import hlsdk.globals;
 

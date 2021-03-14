@@ -2,7 +2,7 @@ module;
 #include <functional>
 #include <system_error>
 export module amxx.amxmodx_detail;
-import hlsdk.types;
+import hlsdk.engine;
 
 export namespace amxx {
 	namespace detail {

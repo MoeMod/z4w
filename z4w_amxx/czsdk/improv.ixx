@@ -29,14 +29,9 @@
 module;
 
 export module czsdk.improv;
-export import hlsdk.types;
+export import hlsdk.cbase;
 export import czsdk.nav;
 export import czsdk.GameEvent;
-
-namespace hlsdk {
-	class CBaseEntity;
-	class CBasePlayer;
-}
 
 using namespace hlsdk;
 

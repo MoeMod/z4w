@@ -2,28 +2,22 @@ module;
 
 #include <chrono>
 
-export module hlsdk.player;
-export import hlsdk.basemonster;
+export module hlsdk.cbase:player;
+export import :ent;
+export import :hintmessage;
 export import hlsdk.pm_materials;
 export import hlsdk.player_const;
 export import hlsdk.weapons_buy;
 export import hlsdk.cdll_dll;
-export import hlsdk.hintmessage;
 export import hlsdk.player_signal;
 
 using namespace std::chrono_literals;
 
 export namespace hlsdk {
 
-	class CWeaponBox;
-	class CBasePlayerWeapon;
-
 	class CBasePlayer : public CBaseMonster
 	{
 	public:
-		CBasePlayer() = delete;
-		~CBasePlayer() = delete;
-
 		void Spawn() override;
 		void Precache() override;
 		void Restart(void) override;
@@ -50,8 +44,8 @@ export namespace hlsdk {
 		BOOL FBecomeProne() override;
 		Vector BodyTarget(const Vector& posSrc) override { return Center() + pev->view_ofs * RANDOM_FLOAT(0.5f, 1.1f); }
 		int Illumination() override;
-		BOOL ShouldFadeOnDeath() override { return FALSE; }
-		void ResetMaxSpeed() override;
+		BOOL ShouldFadeOnDeath(void) override { return FALSE; }
+		void ResetMaxSpeed(void) override;
 		virtual void Jump();
 		virtual void Duck();
 		virtual void PreThink();

@@ -1,7 +1,7 @@
 module;
 
 export module hlsdk.globals;
-import hlsdk.types;
+import hlsdk.engine;
 
 export namespace hlsdk {
 	Vector g_vecAttackDir;

@@ -30,11 +30,7 @@ module;
 #include <chrono>
 
 export module czsdk.bot_util;
-export import hlsdk.types;
-export import hlsdk.extdll;
-export import hlsdk.util;
 export import hlsdk.cbase;
-export import hlsdk.cvardef;
 import hlsdk.enginecallback;
 import hlsdk.player_const;
 

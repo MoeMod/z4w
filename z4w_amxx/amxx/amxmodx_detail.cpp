@@ -8,7 +8,7 @@ module;
 #include <ranges>
 
 module amxx.amxmodx_detail;
-import hlsdk.types;
+import hlsdk.engine;
 
 using namespace hlsdk;
 namespace amxx

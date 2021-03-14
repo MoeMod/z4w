@@ -40,7 +40,7 @@
 //#include "enginecallbacks.h"	// ALERT, etc
 //#include "sdk_util.h"			// UTIL_VarArgs, etc
 
-import hlsdk.edict;
+import hlsdk.engine;
 import hlsdk.extdll;
 import hlsdk.util;
 using namespace hlsdk;

@@ -1,5 +1,5 @@
 export module hlsdk.cbase_const;
-export import hlsdk.types;
+export import hlsdk.engine;
 
 export namespace hlsdk {
 

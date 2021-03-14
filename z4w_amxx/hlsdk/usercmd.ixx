@@ -1,7 +1,7 @@
 module;
 
 export module hlsdk.usercmd;
-import hlsdk.types;
+import hlsdk.engine;
 
 export namespace hlsdk {
 	typedef struct usercmd_s

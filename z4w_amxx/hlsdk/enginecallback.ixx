@@ -6,16 +6,7 @@ module;
 #include <utility>
 
 export module hlsdk.enginecallback;
-
 export import hlsdk.extdll;
-
-export import hlsdk.extdll;
-export import hlsdk.types;
-export import hlsdk.consts;
-export import hlsdk.edict;
-export import hlsdk.eiface;
-export import hlsdk.progdefs;
-export import hlsdk.cvardef;
 
 export namespace hlsdk
 {
@@ -23,15 +14,9 @@ export namespace hlsdk
 
 	inline int	GETPLAYERUSERID(edict_t* e) { return (*g_engfuncs.pfnGetPlayerUserId)(e); }
 	inline int	PRECACHE_GENERIC(const char* s) { return (*g_engfuncs.pfnPrecacheGeneric)(s); }
-#ifdef CLIENT_DLL
-	inline int PRECACHE_MODEL(const char* s) { return 0; }
-	inline int PRECACHE_SOUND(const char* s) { return 0; }
-	inline void	SET_MODEL(edict_t* e, const char* m) {  }
-#else
 	inline int	PRECACHE_MODEL(const char* s) { return (*g_engfuncs.pfnPrecacheModel)(s); }
 	inline int	PRECACHE_SOUND(const char* s) { return (*g_engfuncs.pfnPrecacheSound)(s); }
 	inline void	SET_MODEL(edict_t* e, const char* m) { return (*g_engfuncs.pfnSetModel)(e, m); }
-#endif
 	inline int	MODEL_INDEX(const char* m) { return (*g_engfuncs.pfnModelIndex)(m); }
 	inline int	MODEL_FRAMES(int modelIndex) { return (*g_engfuncs.pfnModelFrames)(modelIndex); }
 	inline void	SET_SIZE(edict_t* e, const float* rgflMin, const float* rgflMax) { return (*g_engfuncs.pfnSetSize)(e, rgflMin, rgflMax); }
@@ -93,16 +78,16 @@ export namespace hlsdk
 	inline void	WRITE_COORD(float flValue) { return (*g_engfuncs.pfnWriteCoord)(flValue); }
 	inline void	WRITE_STRING(const char* sz) { return (*g_engfuncs.pfnWriteString)(sz); }
 	inline void	WRITE_ENTITY(int iValue) { return (*g_engfuncs.pfnWriteEntity)(iValue); }
-	inline void	CVAR_REGISTER(cvar_t* pCvar) { return (*g_engfuncs.pfnCVarRegister)(pCvar); }
+	inline void	CVAR_REGISTER(cvar_s* pCvar) { return (*g_engfuncs.pfnCVarRegister)(pCvar); }
 	inline float	CVAR_GET_FLOAT(const char* szVarName) { return (*g_engfuncs.pfnCVarGetFloat)(szVarName); }
 	inline const char* CVAR_GET_STRING(const char* szVarName) { return (*g_engfuncs.pfnCVarGetString)(szVarName); }
 	inline void	CVAR_SET_FLOAT(const char* szVarName, float flValue) { return (*g_engfuncs.pfnCVarSetFloat)(szVarName, flValue); }
 	inline void	CVAR_SET_STRING(const char* szVarName, const char* szValue) { return (*g_engfuncs.pfnCVarSetString)(szVarName, szValue); }
-	inline cvar_t* CVAR_GET_POINTER(const char* szVarName) { return (*g_engfuncs.pfnCVarGetPointer)(szVarName); }
+	inline cvar_s* CVAR_GET_POINTER(const char* szVarName) { return (*g_engfuncs.pfnCVarGetPointer)(szVarName); }
 	template<class...Args> void	ALERT(ALERT_TYPE atype, const char* szFmt, Args &&...args) { return (*g_engfuncs.pfnAlertMessage)(atype, szFmt, std::forward<Args>(args)...); }
 	template<class...Args> void	ENGINE_FPRINTF(FILE* pfile, const char* szFmt, Args &&...args) { return (*g_engfuncs.pfnEngineFprintf)(pfile, szFmt, std::forward<Args>(args)...); }
 	inline void* ALLOC_PRIVATE(edict_t* pEdict, long cb) { return (*g_engfuncs.pfnPvAllocEntPrivateData)(pEdict, cb); }
-	template<class T = void> T* GET_PRIVATE(edict_t* pent) { return pent ? static_cast<T*>(pent->pvPrivateData) : nullptr; }
+	template<class T = void> T* GET_PRIVATE(edict_t* pEdict) { return static_cast<T *>((*g_engfuncs.pfnPvEntPrivateData)(pEdict)); }
 	inline void	FREE_PRIVATE(edict_t* pEdict) { return (*g_engfuncs.pfnFreeEntPrivateData)(pEdict); }
 	//inline const char *STRING( int iString ) { return (*g_engfuncs.pfnSzFromIndex)(iString); }
 	inline int	ALLOC_STRING(const char* szValue) { return (*g_engfuncs.pfnAllocString)(szValue); }

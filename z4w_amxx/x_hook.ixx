@@ -3,7 +3,7 @@ module;
 
 export module x_hook;
 export import metahook;
-export import hlsdk.consts;
+export import hlsdk.engine;
 
 using namespace metahook;
 using namespace hlsdk;

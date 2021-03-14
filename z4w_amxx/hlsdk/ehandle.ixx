@@ -26,9 +26,12 @@
 *
 */
 
-export module hlsdk.ehandle;
-export import hlsdk.cbase;
-export import hlsdk.edict;
+module;
+#include <type_traits>
+
+export module hlsdk.cbase:ehandle;
+export import hlsdk.engine;
+export import :fwd;
 
 export namespace hlsdk {
 
@@ -48,9 +51,9 @@ public:
 	// Note : template functions are considered behind non-template functions
 	template<class U, class = typename std::enable_if<std::is_base_of<T, U>::value>::type>
 	constexpr
-	EntityHandle(const EntityHandle<U> &other) : m_edict(other.m_edict), m_serialnumber(other.m_serialnumber) {}
+	explicit EntityHandle(const EntityHandle<U> &other) : m_edict(other.m_edict), m_serialnumber(other.m_serialnumber) {}
 
-	EntityHandle(const T *pEntity);
+	explicit EntityHandle(const T *pEntity);
 	explicit EntityHandle(edict_t *pEdict);
 
 	template<class U>
@@ -123,8 +126,8 @@ template<typename T>
 inline edict_t *EntityHandle<T>::Set(edict_t *pEdict)
 {
 	m_edict = pEdict;
-	if (pEdict) {
-		m_serialnumber = pEdict->serialnumber;
+	if (m_edict) {
+		m_serialnumber = m_edict->serialnumber;
 	}
 
 	return pEdict;

@@ -1,9 +1,8 @@
-export module hlsdk.saverestore;
+export module hlsdk.cbase:saverestore;
+import :fwd;
 export import hlsdk.extdll;
 
 export namespace hlsdk {
-	class CBaseEntity;
-
 	class CSaveRestoreBuffer
 	{
 	public:

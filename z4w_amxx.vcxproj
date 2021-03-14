@@ -39,12 +39,14 @@
     <ClCompile Include="z4w_amxx\czsdk\nav_path.ixx" />
     <ClCompile Include="z4w_amxx\czsdk\steam_util.ixx" />
     <ClCompile Include="z4w_amxx\hlsdk\activity.ixx" />
-    <ClCompile Include="z4w_amxx\hlsdk\basemonster.ixx" />
     <ClCompile Include="z4w_amxx\hlsdk\cbase.ixx" />
     <ClCompile Include="z4w_amxx\hlsdk\cbase_const.ixx" />
-    <ClCompile Include="z4w_amxx\hlsdk\cbase_ext.ixx" />
+    <ClCompile Include="z4w_amxx\hlsdk\cbase_ent.ixx" />
+    <ClCompile Include="z4w_amxx\hlsdk\cbase_fwd.ixx" />
     <ClCompile Include="z4w_amxx\hlsdk\cdll_dll.ixx" />
     <ClCompile Include="z4w_amxx\hlsdk\ehandle.ixx" />
+    <ClCompile Include="z4w_amxx\hlsdk\engine.ixx" />
+    <ClCompile Include="z4w_amxx\hlsdk\engine_fwd.ixx" />
     <ClCompile Include="z4w_amxx\hlsdk\hintmessage.ixx" />
     <ClCompile Include="z4w_amxx\hlsdk\monsterevent.ixx" />
     <ClCompile Include="z4w_amxx\hlsdk\player.ixx" />
@@ -54,6 +56,7 @@
     <ClCompile Include="z4w_amxx\hlsdk\saverestore.ixx" />
     <ClCompile Include="z4w_amxx\hlsdk\utlmemory.ixx" />
     <ClCompile Include="z4w_amxx\hlsdk\utlvector.ixx" />
+    <ClCompile Include="z4w_amxx\hlsdk\vector.ixx" />
     <ClCompile Include="z4w_amxx\hlsdk\weapons_buy.ixx" />
     <ClCompile Include="z4w_amxx\hlsdk\weapons_const.ixx" />
     <ClCompile Include="z4w_amxx\metahook\metahook.ixx" />

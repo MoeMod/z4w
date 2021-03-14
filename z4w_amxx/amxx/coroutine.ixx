@@ -5,7 +5,7 @@ module;
 #include <coroutine>
 #include <optional>
 export module amxx.coroutine;
-export import hlsdk.types;
+export import hlsdk.engine;
 
 using namespace hlsdk;
 export namespace amxx {

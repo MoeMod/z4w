@@ -1,9 +1,9 @@
 module;
 
 
-export module hlsdk.custom;
-import hlsdk.types;
-import hlsdk.consts;
+export module hlsdk.engine:custom;
+import :types;
+import :consts;
 
 export namespace hlsdk
 {

@@ -40,7 +40,7 @@
 #include "plinfo.h"		// plugin_info_t, etc
 #include "mhook.h"		// game_event_t, etc
 
-import hlsdk.progdefs;
+import hlsdk.engine;
 import hlsdk.util;
 using namespace hlsdk;
 

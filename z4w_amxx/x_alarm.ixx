@@ -7,7 +7,7 @@ module;
 #include <list>
 
 export module x_alarm;
-export import hlsdk.types;
+export import hlsdk.engine;
 export import SourceSDK.Color;
 import amxx.amxmodx;
 import amxxmodule;

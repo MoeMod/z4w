@@ -4,7 +4,7 @@ module;
 #include <coroutine>
 export module x_jointip;
 import amxx.amxmodx;
-import hlsdk.types;
+import hlsdk.engine;
 import stock;
 import x_iplocation;
 using namespace amxx;

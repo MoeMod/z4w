@@ -3,7 +3,7 @@ module;
 
 export module hlsdk.Sequence;
 
-import hlsdk.types;
+import hlsdk.engine;
 
 export namespace hlsdk
 {

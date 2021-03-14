@@ -2,7 +2,7 @@ module;
 #include <chrono>
 
 export module hlsdk.player_const;
-export import hlsdk.types;
+export import hlsdk.engine;
 
 using namespace std::chrono_literals;
 

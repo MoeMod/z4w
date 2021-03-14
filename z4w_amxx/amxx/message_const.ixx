@@ -1,7 +1,7 @@
 module;
 
 export module amxx.message_const;
-import hlsdk.types;
+import hlsdk.engine;
 
 export namespace amxx {
 	constexpr auto SVC_NOP = 1;
