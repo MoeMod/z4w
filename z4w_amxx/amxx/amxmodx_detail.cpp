@@ -14,6 +14,7 @@ using namespace hlsdk;
 namespace amxx
 {
 	namespace detail {
+#pragma region timer
 		boost::asio::io_context ioc;
 		// 这里改用引擎虚拟时钟，避免和操作系统耦合导致系统时间变更的时候出现异常行为
 		using timer_type = boost::asio::basic_waitable_timer<EngineClock>;
@@ -78,5 +79,18 @@ namespace amxx
 		{
 			boost::asio::dispatch(ioc, func);
 		}
+#pragma endregion
+#pragma region message
+		void MessageBegin(int msg_dest, int msg_type, const float* pOrigin, edict_t* ed) {}
+		void MessageEnd() {}
+		void WriteByte(int iValue) {}
+		void WriteChar(int iValue) {}
+		void WriteShort(int iValue) {}
+		void WriteLong(int iValue) {}
+		void WriteAngle(float fValue) {}
+		void WriteCoord(float fValue) {}
+		void WriteString(const char* sz) {}
+		void WriteEntity(int iValue) {}
+#pragma endregion
 	}
 }

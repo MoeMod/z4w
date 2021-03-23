@@ -809,56 +809,76 @@ static enginefuncs_t g_EngineFuncs_Table =
 #else
 	NULL,
 #endif
+	+[](int msg_dest, int msg_type, const float* pOrigin, edict_t* ed)->void
+	{
+		amxx::detail::MessageBegin(msg_dest, msg_type, pOrigin, ed);
 #ifdef FN_MessageBegin
-	FN_MessageBegin,
-#else
-	NULL,
+		FN_MessageBegin(msg_dest, msg_type, pOrigin, ed);
 #endif
+	},
+	+[]()->void
+	{
+		amxx::detail::MessageEnd();
 #ifdef FN_MessageEnd
-	FN_MessageEnd,
-#else
-	NULL,
+		FN_MessageEnd();
 #endif
+	},
+	+[](int iValue)->void
+	{
+		amxx::detail::WriteByte(iValue);
 #ifdef FN_WriteByte
-	FN_WriteByte,
-#else
-	NULL,
+		FN_WriteByte(iValue);
 #endif
+	},
+	+[](int iValue)->void
+	{
+		amxx::detail::WriteChar(iValue);
 #ifdef FN_WriteChar
-	FN_WriteChar,
-#else
-	NULL,
+		FN_WriteChar(iValue);
 #endif
+	},
+	+[](int iValue)->void
+	{
+		amxx::detail::WriteShort(iValue);
 #ifdef FN_WriteShort
-	FN_WriteShort,
-#else
-	NULL,
+		FN_WriteShort(iValue);
 #endif
+	},
+	+[](int iValue)->void
+	{
+		amxx::detail::WriteLong(iValue);
 #ifdef FN_WriteLong
-	FN_WriteLong,
-#else
-	NULL,
+		FN_WriteLong(iValue);
 #endif
+	},
+	+[](float fValue)->void
+	{
+		amxx::detail::WriteAngle(fValue);
 #ifdef FN_WriteAngle
-	FN_WriteAngle,
-#else
-	NULL,
+		FN_WriteAngle(fValue);
 #endif
+	},
+	+[](float fValue)->void
+	{
+		amxx::detail::WriteCoord(fValue);
 #ifdef FN_WriteCoord
-	FN_WriteCoord,
-#else
-	NULL,
+		FN_WriteCoord(fValue);
 #endif
+	},
+	+[](const char *sz)->void
+	{
+		amxx::detail::WriteString(sz);
 #ifdef FN_WriteString
-	FN_WriteString,
-#else
-	NULL,
+		FN_WriteString(sz);
 #endif
+	},
+	+[](int iValue)->void
+	{
+		amxx::detail::WriteEntity(iValue);
 #ifdef FN_WriteEntity
-	FN_WriteEntity,
-#else
-	NULL,
+		FN_WriteEntity(iValue);
 #endif
+	},
 #ifdef FN_CVarRegister
 	FN_CVarRegister,
 #else
