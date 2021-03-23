@@ -26,8 +26,6 @@
 *
 */
 
-module;
-#include <chrono>
 
 export module czsdk.bot_util;
 export import hlsdk.cbase;
@@ -100,7 +98,7 @@ inline bool IsEntityValid(CBaseEntity* entity);
 // and put the intersection point in "result".
 // Note that this computes the intersection of the 2D (x,y) projection of the line segments.
 
-inline bool IsIntersecting2D(const Vector &startA, const Vector &endA, const Vector &startB, const Vector &endB, Vector *result = NULL)
+inline bool IsIntersecting2D(const Vector &startA, const Vector &endA, const Vector &startB, const Vector &endB, Vector *result = nullptr)
 {
 	float denom = (endA.x - startA.x) * (endB.y - startB.y) - (endA.y - startA.y) * (endB.x - startB.x);
 	if (denom == 0.0f)
@@ -209,8 +207,8 @@ int UTIL_ActivePlayersInGame();
 int UTIL_BotsInGame();
 bool UTIL_KickBotFromTeam(TeamName kickTeam);
 bool UTIL_IsTeamAllBots(int team);
-CBasePlayer *UTIL_GetClosestPlayer(const Vector *pos, float *distance = NULL);
-CBasePlayer *UTIL_GetClosestPlayer(const Vector *pos, int team, float *distance = NULL);
+CBasePlayer *UTIL_GetClosestPlayer(const Vector *pos, float *distance = nullptr);
+CBasePlayer *UTIL_GetClosestPlayer(const Vector *pos, int team, float *distance = nullptr);
 const char *UTIL_GetBotPrefix();
 void UTIL_ConstructBotNetName(char *name, int nameLength, const BotProfile *profile);
 bool UTIL_IsVisibleToTeam(const Vector &spot, int team, float maxRange = -1.0f);

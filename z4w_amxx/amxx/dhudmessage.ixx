@@ -1,7 +1,4 @@
 module;
-
-#include <algorithm>
-#include <chrono>
 #include <stdarg.h>
 
 export module amxx.dhudmessage;
@@ -11,6 +8,8 @@ import hlsdk.util;
 import amxx.convert;
 import amxx.message_const;
 import amxxmodule;
+
+import <algorithm>;
 
 using namespace hlsdk;
 using namespace amxxmodule;

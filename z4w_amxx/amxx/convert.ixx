@@ -1,11 +1,9 @@
-module;
-
-#include <type_traits>
-#include <functional>
-#include <concepts>
 
 export module amxx.convert;
 import hlsdk.cbase;
+import <type_traits>;
+import <functional>;
+import <concepts>;
 
 using namespace hlsdk;
 

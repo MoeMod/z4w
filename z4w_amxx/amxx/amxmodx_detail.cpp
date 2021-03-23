@@ -3,8 +3,6 @@ module;
 #define BOOST_ASIO_NO_DEPRECATED
 #define BOOST_ASIO_STANDALONE
 #include <boost/asio.hpp> // vcpkg install boost-asio
-#include <chrono>
-#include <functional>
 #include <ranges>
 
 module amxx.amxmodx_detail;

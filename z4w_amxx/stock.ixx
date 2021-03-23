@@ -1,12 +1,11 @@
-module;
-#include <stdio.h>
-#include <string>
 
 export module stock;
 import amxx.amxmodx;
 import hlsdk.extdll;
 import hlsdk.enginecallback;
 import amxxmodule;
+
+export import <string>;
 
 using namespace amxx;
 using namespace hlsdk;

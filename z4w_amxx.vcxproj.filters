@@ -251,5 +251,23 @@
       <Filter>sdk</Filter>
     </ClInclude>
     <ClInclude Include="z4w_amxx\moduleconfig.h" />
+    <ClInclude Include="z4w_amxx\sdk\dllapi_fwd.h">
+      <Filter>sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="z4w_amxx\sdk\engine_api_fwd.h">
+      <Filter>sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="z4w_amxx\sdk\meta_api.h">
+      <Filter>sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="z4w_amxx\sdk\mutil.h">
+      <Filter>sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="z4w_amxx\sdk\plinfo.h">
+      <Filter>sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="z4w_amxx\sdk\exportdef.h">
+      <Filter>sdk</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

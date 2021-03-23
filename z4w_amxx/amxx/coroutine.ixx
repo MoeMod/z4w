@@ -1,11 +1,11 @@
-module;
-#include <exception>
-#include <functional>
-#include <concepts>
-#include <coroutine>
-#include <optional>
+
 export module amxx.coroutine;
 export import hlsdk.engine;
+import <exception>;
+import <functional>;
+import <concepts>;
+import <coroutine>;
+import <optional>;
 
 using namespace hlsdk;
 export namespace amxx {

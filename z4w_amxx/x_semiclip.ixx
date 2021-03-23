@@ -1,6 +1,3 @@
-module;
-
-#include <algorithm>
 
 export module x_semiclip;
 
@@ -11,6 +8,8 @@ import hlsdk.entity_state;
 import amxxmodule;
 import amxx.amxmodx;
 import plugin;
+
+import <algorithm>;
 
 using namespace hlsdk;
 using namespace amxxmodule;

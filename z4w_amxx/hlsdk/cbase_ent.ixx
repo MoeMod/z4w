@@ -1,7 +1,3 @@
-module;
-
-#include <type_traits>
-#include <chrono>
 
 export module hlsdk.cbase:ent;
 import :fwd;

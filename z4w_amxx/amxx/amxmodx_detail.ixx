@@ -1,8 +1,9 @@
-module;
-#include <functional>
-#include <system_error>
+
 export module amxx.amxmodx_detail;
-import hlsdk.engine;
+export import hlsdk.engine;
+export import <functional>;
+export import <system_error>;
+export import <map>;
 
 using namespace hlsdk;
 

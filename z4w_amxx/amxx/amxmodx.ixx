@@ -1,11 +1,7 @@
 module;
-
-#include <algorithm>
-#include <chrono>
-#include <string>
 #include <stdarg.h>
-
-#include <meta_api.h>
+#include "plinfo.h"
+#include "mutil.h"
 
 export module amxx.amxmodx;
 import hlsdk.extdll;
@@ -19,13 +15,14 @@ export import amxx.convert;
 export import amxx.coroutine;
 import amxxmodule;
 
+import <algorithm>;
+import <string>;
+
 using namespace hlsdk;
 using namespace amxxmodule;
 
 export namespace amxx {
 	using hlsdk::EngineClock;
-
-	using namespace std::chrono_literals;
 
 	time_point_t get_gametime()
 	{

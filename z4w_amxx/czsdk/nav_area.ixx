@@ -25,11 +25,10 @@
 *   version.
 *
 */
-module;
-#include <list>
 
 export module czsdk.nav_area;
 export import czsdk.nav;
+import <list>;
 
 using namespace hlsdk;
 

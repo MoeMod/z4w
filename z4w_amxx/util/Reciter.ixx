@@ -1,8 +1,6 @@
-module;
-
-#include <string>
 
 export module Reciter;
+export import <string>;
 // question / answer
 struct Reciter{
     std::string question;

@@ -15,17 +15,7 @@
 #include <meta_api.h>
 #endif // #ifdef USE_METAMOD
 
-// DLL Export
-#undef DLLEXPORT
-#ifndef __linux__
-#define DLLEXPORT __declspec(dllexport)
-#else
-#define DLLEXPORT __attribute__((visibility("default")))
-#define LINUX
-#endif
-
-#undef C_DLLEXPORT
-#define C_DLLEXPORT extern "C" DLLEXPORT
+#include "exportdef.h"
 
 // ***** AMXX stuff *****
 
@@ -59,6 +49,10 @@ struct amxx_module_info_s
 // *** Small stuff ***
 // The next section is copied from the amx.h file
 // Copyright (c) ITB CompuPhase, 1997-2005
+
+#if __has_include(<stdint.h>)
+#define HAVE_STDINT_H
+#endif
 
 #if defined HAVE_STDINT_H
   #include <stdint.h>

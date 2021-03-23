@@ -1,10 +1,9 @@
-module;
-#include <string>
 
 export module x_iplocation;
 import amxx.amxmodx;
 import qqwry;
 import encode;
+export import <string>;
 
 using namespace amxx;
 

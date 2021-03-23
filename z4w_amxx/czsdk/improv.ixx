@@ -26,8 +26,6 @@
 *
 */
 
-module;
-
 export module czsdk.improv;
 export import hlsdk.cbase;
 export import czsdk.nav;

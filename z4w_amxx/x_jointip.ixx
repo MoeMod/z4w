@@ -1,12 +1,12 @@
-module;
-#include <string>
-#include <chrono>
-#include <coroutine>
+
 export module x_jointip;
 import amxx.amxmodx;
 import hlsdk.engine;
 import stock;
 import x_iplocation;
+
+export import <string>;
+
 using namespace amxx;
 using namespace hlsdk;
 using namespace std::chrono_literals;

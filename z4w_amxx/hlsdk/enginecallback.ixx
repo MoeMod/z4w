@@ -1,12 +1,13 @@
 module;
 
-#include <varargs.h>
+#include <stdarg.h>
 #include <string.h>
 #include <stdio.h>
-#include <utility>
 
 export module hlsdk.enginecallback;
 export import hlsdk.extdll;
+
+import <utility>;
 
 export namespace hlsdk
 {

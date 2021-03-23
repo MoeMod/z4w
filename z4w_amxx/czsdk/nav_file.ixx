@@ -26,12 +26,11 @@
 *
 */
 
-module;
-#include <vector>
-
 export module czsdk.nav_file;
 export import czsdk.nav;
 export import czsdk.steam_util;
+
+import <vector>;
 
 using namespace hlsdk;
 

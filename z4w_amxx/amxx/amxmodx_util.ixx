@@ -1,5 +1,3 @@
-module;
-#include <chrono>
 
 export module amxx.amxmodx_util;
 import hlsdk.extdll;

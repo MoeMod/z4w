@@ -1,5 +1,3 @@
-module;
-#include <stdio.h>
 
 export module hlsdk.engine:eiface;
 import :fwd;

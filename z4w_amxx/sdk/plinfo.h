@@ -34,8 +34,7 @@
  *
  */
 
-#ifndef PLINFO_H
-#define PLINFO_H
+#pragma once
 
 // Flags for plugin to indicate when it can be be loaded/unloaded.
 // NOTE: order is crucial, as greater/less comparisons are made.
@@ -77,6 +76,4 @@ extern plugin_info_t Plugin_info;
 
 // Plugin identifier, passed to all Meta Utility Functions.
 typedef plugin_info_t* plid_t;
-#define PLID	&Plugin_info
-
-#endif /* PLINFO_H */
+extern plugin_info_t* PLID;

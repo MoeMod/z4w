@@ -1,8 +1,7 @@
-module;
-#include <string>
-#include <stdio.h>
 
 export module qqwry;
+export import <string>;
+export import <stdexcept>;
 
 const int INDEX_LENGTH = 7;        // 一个索引包含4字节的起始IP和3字节的IP记录偏移，共7字节
 const int IP_LENGTH = 4;
@@ -16,7 +15,7 @@ enum {
 export class CQQWry
 {
 public:
-    explicit CQQWry(const char* pszFileName);
+    explicit CQQWry(const char* pszFileName) noexcept(false); // std::runtime_error
     ~CQQWry();
 
     // 获取ip国家名、地区名

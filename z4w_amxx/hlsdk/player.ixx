@@ -1,6 +1,3 @@
-module;
-
-#include <chrono>
 
 export module hlsdk.cbase:player;
 export import :ent;
@@ -61,7 +58,7 @@ export namespace hlsdk {
 
 	public:
 		void SpawnClientSideCorpse();
-		void Observer_FindNextPlayer(bool bReverse, const char* name = NULL);
+		void Observer_FindNextPlayer(bool bReverse, const char* name = nullptr);
 		CBaseEntity* Observer_IsValidTarget(int iPlayerIndex, bool bSameTeam);
 		void Observer_HandleButtons();
 		void Observer_SetMode(int iMode);
@@ -69,7 +66,7 @@ export namespace hlsdk {
 		void Observer_CheckProperties();
 		int IsObserver() { return pev->iuser1; }
 		void PlantC4();
-		void Radio(const char* msg_id, const char* msg_verbose = NULL, short pitch = 100, bool showIcon = true);
+		void Radio(const char* msg_id, const char* msg_verbose = nullptr, short pitch = 100, bool showIcon = true);
 		CBasePlayer* GetNextRadioRecipient(CBasePlayer* pStartPlayer);
 		void SmartRadio();
 		void ThrowWeapon(const char* pszItemName);
@@ -84,7 +81,7 @@ export namespace hlsdk {
 		BOOL IsBombGuy();
 		bool IsLookingAtPosition(Vector* pos, float angleTolerance = 20.0f);
 		void Reset();
-		void SetScoreboardAttributes(CBasePlayer* destination = NULL);
+		void SetScoreboardAttributes(CBasePlayer* destination = nullptr);
 		void RenewItems();
 		void PackDeadPlayerItems();
 		void GiveDefaultItems();
@@ -187,7 +184,7 @@ export namespace hlsdk {
 		void ClearAutoBuyData();
 		void AddAutoBuyData(const char* str);
 		void AutoBuy();
-		void ClientCommand(const char* cmd, const char* arg1 = NULL, const char* arg2 = NULL, const char* arg3 = NULL);
+		void ClientCommand(const char* cmd, const char* arg1 = nullptr, const char* arg2 = nullptr, const char* arg3 = nullptr);
 		void PrioritizeAutoBuyString(char* autobuyString, const char* priorityString);
 		const char* PickPrimaryCareerTaskWeapon();
 		const char* PickSecondaryCareerTaskWeapon();

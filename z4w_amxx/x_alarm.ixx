@@ -1,10 +1,3 @@
-module;
-
-#include <string>
-#include <chrono>
-#include <array>
-#include <list>
-#include <functional>
 
 export module x_alarm;
 export import hlsdk.engine;
@@ -13,6 +6,11 @@ import amxx.amxmodx;
 import amxxmodule;
 import plugin;
 import stock;
+
+export import <string>;
+import <array>;
+import <list>;
+export import <functional>;
 
 using namespace hlsdk;
 using namespace amxx;

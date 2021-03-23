@@ -1,13 +1,14 @@
 module;
-#include <array>
-#include <ranges>
-#include <numeric>
-#include <span>
 
 export module amxx.ranges;
 export import amxx.amxmodx;
 export import amxx.convert;
 export import hlsdk.cdll_dll;
+
+import <array>;
+export import <ranges>;
+import <numeric>;
+export import <span>;
 
 using namespace hlsdk;
 

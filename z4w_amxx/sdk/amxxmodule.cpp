@@ -2104,6 +2104,7 @@ plugin_info_t Plugin_info = {
 		PT_ANYTIME,
 		PT_ANYTIME
 };
+plugin_info_t* PLID = &Plugin_info;
 
 C_DLLEXPORT int GetEntityAPI(DLL_FUNCTIONS *pFunctionTable, int interfaceVersion)
 {

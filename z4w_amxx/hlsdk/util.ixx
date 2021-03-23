@@ -3,13 +3,14 @@ module;
 #include <stdarg.h>
 #include <string.h>
 #include <stdio.h>
-#include <limits>
 
 export module hlsdk.util;
 
 export import hlsdk.extdll;
 export import hlsdk.enginecallback;
 export import hlsdk.globals;
+
+import <limits>;
 
 export namespace hlsdk
 {

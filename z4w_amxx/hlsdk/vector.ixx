@@ -2,14 +2,14 @@ module;
 
 #define _USE_MATH_DEFINES
 #include <cmath>
-#include <utility>
-#include <numeric>
-#include <array>
-#include <type_traits>
-#include <limits>
-#include <chrono>
 
 export module hlsdk.engine:vector;
+
+import <utility>;
+import <numeric>;
+import <array>;
+import <type_traits>;
+import <limits>;
 
 namespace hlsdk {
 

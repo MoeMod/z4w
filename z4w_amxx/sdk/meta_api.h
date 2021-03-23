@@ -34,11 +34,10 @@
  *
  */
 
-#ifndef META_API_H
-#define META_API_H
+#pragma once
 
-#include "dllapi.h"				// GETENTITYAPI_FN, etc
-#include "engine_api.h"			// GET_ENGINE_FUNCTIONS_FN, etc
+#include "dllapi_fwd.h"				// GETENTITYAPI_FN, etc
+#include "engine_api_fwd.h"			// GET_ENGINE_FUNCTIONS_FN, etc
 #include "plinfo.h"				// plugin_info_t, etc
 #include "mutil.h"				// mutil_funcs_t, etc
 
@@ -61,12 +60,7 @@
 // Version 5:11 added plugin loading and unloading API [v1.18]
 // Version 5:12 added util code for checking player query status [v1.18]
 // Version 5:13 added cvarquery2 support and api for calling hook tables [v1.19]
-#define META_INTERFACE_VERSION "5:13"
-
-#ifdef UNFINISHED
-// Version 5:99	added event hook utility functions [v.???]
-#define META_INTERFACE_VERSION "5:99"
-#endif /* UNFINISHED */
+constexpr const char* META_INTERFACE_VERSION = "5:13";
 
 // Flags returned by a plugin's api function.
 // NOTE: order is crucial, as greater/less comparisons are made.
@@ -165,72 +159,3 @@ C_DLLEXPORT int GetEngineFunctions(enginefuncs_t *pengfuncsFromEngine,
 		int *interfaceVersion);
 C_DLLEXPORT int GetEngineFunctions_Post(enginefuncs_t *pengfuncsFromEngine, 
 		int *interfaceVersion);
-
-// Convenience macros for accessing GameDLL functions.  Note: these talk
-// _directly_ to the gamedll, and are not multiplexed through Metamod to
-// the other plugins.
-
-// DLL API functions:
-#define MDLL_FUNC	gpGamedllFuncs->dllapi_table
-
-#define MDLL_GameDLLInit				MDLL_FUNC->pfnGameInit
-#define MDLL_Spawn						MDLL_FUNC->pfnSpawn
-#define MDLL_Think						MDLL_FUNC->pfnThink
-#define MDLL_Use						MDLL_FUNC->pfnUse
-#define MDLL_Touch						MDLL_FUNC->pfnTouch
-#define MDLL_Blocked					MDLL_FUNC->pfnBlocked
-#define MDLL_KeyValue					MDLL_FUNC->pfnKeyValue
-#define MDLL_Save						MDLL_FUNC->pfnSave
-#define MDLL_Restore					MDLL_FUNC->pfnRestore
-#define MDLL_ObjectCollsionBox			MDLL_FUNC->pfnAbsBox
-#define MDLL_SaveWriteFields			MDLL_FUNC->pfnSaveWriteFields
-#define MDLL_SaveReadFields				MDLL_FUNC->pfnSaveReadFields
-#define MDLL_SaveGlobalState			MDLL_FUNC->pfnSaveGlobalState
-#define MDLL_RestoreGlobalState			MDLL_FUNC->pfnRestoreGlobalState
-#define MDLL_ResetGlobalState			MDLL_FUNC->pfnResetGlobalState
-#define MDLL_ClientConnect				MDLL_FUNC->pfnClientConnect
-#define MDLL_ClientDisconnect			MDLL_FUNC->pfnClientDisconnect
-#define MDLL_ClientKill					MDLL_FUNC->pfnClientKill
-#define MDLL_ClientPutInServer			MDLL_FUNC->pfnClientPutInServer
-#define MDLL_ClientCommand				MDLL_FUNC->pfnClientCommand
-#define MDLL_ClientUserInfoChanged		MDLL_FUNC->pfnClientUserInfoChanged
-#define MDLL_ServerActivate				MDLL_FUNC->pfnServerActivate
-#define MDLL_ServerDeactivate			MDLL_FUNC->pfnServerDeactivate
-#define MDLL_PlayerPreThink				MDLL_FUNC->pfnPlayerPreThink
-#define MDLL_PlayerPostThink			MDLL_FUNC->pfnPlayerPostThink
-#define MDLL_StartFrame					MDLL_FUNC->pfnStartFrame
-#define MDLL_ParmsNewLevel				MDLL_FUNC->pfnParmsNewLevel
-#define MDLL_ParmsChangeLevel			MDLL_FUNC->pfnParmsChangeLevel
-#define MDLL_GetGameDescription			MDLL_FUNC->pfnGetGameDescription
-#define MDLL_PlayerCustomization		MDLL_FUNC->pfnPlayerCustomization
-#define MDLL_SpectatorConnect			MDLL_FUNC->pfnSpectatorConnect
-#define MDLL_SpectatorDisconnect		MDLL_FUNC->pfnSpectatorDisconnect
-#define MDLL_SpectatorThink				MDLL_FUNC->pfnSpectatorThink
-#define MDLL_Sys_Error					MDLL_FUNC->pfnSys_Error
-#define MDLL_PM_Move					MDLL_FUNC->pfnPM_Move
-#define MDLL_PM_Init					MDLL_FUNC->pfnPM_Init
-#define MDLL_PM_FindTextureType			MDLL_FUNC->pfnPM_FindTextureType
-#define MDLL_SetupVisibility			MDLL_FUNC->pfnSetupVisibility
-#define MDLL_UpdateClientData			MDLL_FUNC->pfnUpdateClientData
-#define MDLL_AddToFullPack				MDLL_FUNC->pfnAddToFullPack
-#define MDLL_CreateBaseline				MDLL_FUNC->pfnCreateBaseline
-#define MDLL_RegisterEncoders			MDLL_FUNC->pfnRegisterEncoders
-#define MDLL_GetWeaponData				MDLL_FUNC->pfnGetWeaponData
-#define MDLL_CmdStart					MDLL_FUNC->pfnCmdStart
-#define MDLL_CmdEnd						MDLL_FUNC->pfnCmdEnd
-#define MDLL_ConnectionlessPacket		MDLL_FUNC->pfnConnectionlessPacket
-#define MDLL_GetHullBounds				MDLL_FUNC->pfnGetHullBounds
-#define MDLL_CreateInstancedBaselines	MDLL_FUNC->pfnCreateInstancedBaselines
-#define MDLL_InconsistentFile			MDLL_FUNC->pfnInconsistentFile
-#define MDLL_AllowLagCompensation		MDLL_FUNC->pfnAllowLagCompensation
-
-// NEW API functions:
-#define MNEW_FUNC	gpGamedllFuncs->newapi_table
-
-#define MNEW_OnFreeEntPrivateData		MNEW_FUNC->pfnOnFreeEntPrivateData
-#define MNEW_GameShutdown				MNEW_FUNC->pfnGameShutdown
-#define MNEW_ShouldCollide				MNEW_FUNC->pfnShouldCollide
-#define MNEW_CvarValue					MNEW_FUNC->pfnCvarValue
-#define MNEW_CvarValue2					MNEW_FUNC->pfnCvarValue2
-
-#endif /* META_API_H */

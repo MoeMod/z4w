@@ -13,7 +13,7 @@
 //=============================================================================
 
 module;
-#include <cassert>
+#include <assert.h>
 
 export module hlsdk.utlvector;
 export import hlsdk.utlmemory;

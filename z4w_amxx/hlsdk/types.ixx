@@ -1,10 +1,10 @@
-module;
-#include <utility>
-#include <type_traits>
-#include <chrono>
 
 export module hlsdk.engine:types;
 export import :vector;
+
+export import <chrono>;
+
+using namespace std::chrono_literals;
 
 export namespace hlsdk
 {
@@ -33,7 +33,6 @@ export namespace hlsdk
 	static_assert(sizeof(EngineClock::duration) == sizeof(float) && sizeof(EngineClock::time_point) == sizeof(float), "EngineClock has not the same layout with engine.");
 	using time_point_t = EngineClock::time_point;
 	using duration_t = EngineClock::duration;
-	using namespace std::chrono_literals;
 
 	constexpr EngineClock::duration zero_duration = EngineClock::duration::zero();
 	constexpr EngineClock::duration one_duration = 1.0s;

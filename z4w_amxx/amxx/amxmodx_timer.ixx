@@ -1,11 +1,10 @@
-module;
-#include <map>
-#include <functional>
-#include <coroutine>
-#include <system_error>
+
 export module amxx.amxmodx_timer;
 import amxx.amxmodx_detail;
 import hlsdk.engine;
+export import <functional>;
+export import <coroutine>;
+export import <system_error>;
 
 using namespace hlsdk;
 export namespace amxx {

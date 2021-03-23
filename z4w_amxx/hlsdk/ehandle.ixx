@@ -26,12 +26,10 @@
 *
 */
 
-module;
-#include <type_traits>
-
 export module hlsdk.cbase:ehandle;
 export import hlsdk.engine;
 export import :fwd;
+import <type_traits>;
 
 export namespace hlsdk {
 
