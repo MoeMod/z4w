@@ -1,0 +1,10 @@
+  {
+  "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg/master/scripts/vcpkg.schema.json",
+  "name": "z4w",
+  "version-string": "1.0",
+  "dependencies": [
+    "boost-asio",
+    "detours",
+    "nlohmann-json"
+  ]
+}

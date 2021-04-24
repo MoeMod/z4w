@@ -319,6 +319,9 @@ debug/
 .cxx/
 *.iml
 
+# vcpkg
+vcpkg_installed/
+
 # Others
 .idea
 /cmake-build-*
